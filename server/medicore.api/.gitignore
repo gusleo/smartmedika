@@ -1,0 +1,15 @@
+bin
+/src/MediCore.Api/Migrations
+/src/MediCore.Api/obj
+/packages
+/src/MediCore.Api.Testing/obj
+/MediCore.Services.Test/obj
+/MediCore.Services.Test/bin
+/src/MediCore.Api/Content/Upload
+/Backup
+/.vs/MediCore.Api/v15/.suo
+/.vs/MediCore.Api/v15/Server/sqlite3/db.lock
+/.vs/MediCore.Api/v15/Server/sqlite3/storage.ide
+/.vs/MediCore.Api/v15/Server/sqlite3/storage.ide-shm
+/.vs/MediCore.Api/v15/Server/sqlite3/storage.ide-wal
+/.vs

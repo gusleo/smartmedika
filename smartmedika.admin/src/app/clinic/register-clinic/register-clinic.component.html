@@ -1,0 +1,178 @@
+<md-card>
+  <form [formGroup]="form" (submit)="submitHospital()">
+    <md-tab-group md-dynamic-height md-stretch-tabs>
+      <md-tab>
+        <ng-template md-tab-label>Profile</ng-template>
+        <md-card-content>
+            <div fxLayout="row" fxLayoutAlign="center center" class="mt-1">            
+              <div fxFlex class="text-xs-center">
+                <img [src]="clinicImage" class="radius-circle" [width]="150" [height]="150" >
+              </div>            
+            </div>
+            <p class="mb-1" class="text-xs-center">            
+              <button type="button" md-button class="mr-1" (click)="coverImage.click()" ><md-icon>camera_enhance</md-icon>  Unggah Gambar</button>
+              <input #coverImage type="file" ng2FileSelect [hidden]="true" (change)="imageChange($event)"/>
+            </p>     
+            <div fxLayoutWrap="wrap" fxLayoutAlign="start center" class="mb-1">
+              <md-input-container class="ml-xs mr-xs" style="width: 100%">
+                <input mdInput placeholder="Nama Klinik" [(ngModel)]="hospital.name" type="text" 
+                  formControlName="name">
+              </md-input-container>
+              <small *ngIf="form.controls['name'].hasError('required') && form.controls['name'].touched" class="mat-text-warn ml-xs mr-xs">Nama klinik tidak boleh kosong.</small>
+              <small *ngIf="form.controls['name'].hasError('minlength') && form.controls['name'].touched" class="mat-text-warn ml-xs mr-xs">Nama klinik harus lebih dari 5 karakter.</small>                               
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
+              <div class="ml-xs mr-xs" style="width: 100%;">
+                <md-input-container style="width: 100%;">
+                  <input mdInput placeholder="No Telp (Primary)" type="text" [(ngModel)]="hospital.primaryPhone"
+                    formControlName="primaryPhone">
+                </md-input-container>
+                <small *ngIf="form.controls['primaryPhone'].hasError('required') && form.controls['primaryPhone'].touched" class="mat-text-warn">No. Telp tidak boleh kosong.</small>
+                <small *ngIf="form.controls['primaryPhone'].errors?.number && form.controls['primaryPhone'].touched" class="mat-text-warn">No. Telp tidak valid.</small>
+              </div>
+              <div class="ml-xs mr-xs" style="width: 100%;">
+                <md-input-container style="width: 100%;">
+                  <input mdInput placeholder="No Telp (Secondary)" type="text" [(ngModel)]="hospital.secondaryPhone"
+                    formControlName="secondaryPhone">
+                </md-input-container>                
+                <small *ngIf="form.controls['secondaryPhone'].errors?.number && form.controls['secondaryPhone'].touched" class="mat-text-warn">No. Telp tidak valid.</small>
+              </div>
+            </div>              
+            <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
+              <div class="ml-xs mr-xs" style="width: 100%">
+                <md-input-container style="width: 100%">
+                  <input mdInput placeholder="Email" type="email" [(ngModel)]="hospital.primaryEmail"
+                    formControlName="email">
+                </md-input-container> 
+                <small *ngIf="form.controls['email'].errors?.email && form.controls['email'].touched" class="mat-text-warn">Alamat email tidak valid.</small>
+              </div>
+              <div class="ml-xs mr-xs" style="width: 100%">
+                <md-input-container style="width: 100%">
+                  <input mdInput placeholder="Website" [(ngModel)]="hospital.website" type="url"
+                    formControlName="website">
+                </md-input-container> 
+                <small *ngIf="form.controls['website'].errors?.url && form.controls['website'].touched" class="mat-text-warn">Alamat website tidak valid.</small>
+              </div>                            
+            </div>              
+            <div fxLayout="row" fxLayoutAlign="start center" class="mb-2">
+               <div class="ml-xs mr-xs" style="width: 100%">
+                  <md-input-container  style="width: 100%">
+                    <input mdInput placeholder="Alamat" [(ngModel)]="hospital.address"
+                      formControlName="address">
+                  </md-input-container>    
+                  <small *ngIf="form.controls['address'].hasError('required') && form.controls['address'].touched" class="mat-text-warn">Alamat tidak boleh kosong.</small>
+                  <small *ngIf="form.controls['address'].hasError('minlength') && form.controls['address'].touched" class="mat-text-warn">Nama klinik harus lebih dari 5 karakter.</small>
+               </div>
+               <div fxLayoutWrap="wrap" class="ml-xs mr-xs" style="width: 100%">
+                 <md-input-container style="width: 100%">
+                  <input mdInput placeholder="Kabupaten / Kota" [(ngModel)]="currentRegency"
+                  [mdAutocomplete]="regencyAuto" formControlName="regency">
+                </md-input-container>
+                <small *ngIf="form.controls['regency'].hasError('required') && form.controls['regency'].touched" class="mat-text-warn">Kabupaten / kota tidak boleh kosong.</small>
+               </div>                                                                      
+            </div>   
+            <div fxLayoutWrap="wrap" fxLayoutAlign="start center" class="mb-1">
+                <md-input-container class="ml-xs mr-xs" style="width:100%">
+                  <input mdInput placeholder="Pencarian Peta Lokasi" autocorrect="off" autocapitalize="off" spellcheck="off"
+                    formControlName="searchLocation" #search>
+                </md-input-container>             
+            </div>                               
+            <div fxLayout="row" fxLayoutAlign="start center" class="mb-1">              
+              <agm-map [scrollwheel]="false" [latitude]="lat" [longitude]="lng" [zoom]="zoom" (mapClick)="mapClicked($event)">
+                <agm-marker      
+                    [latitude]="marker.lat"
+                    [longitude]="marker.lng"
+                    [label]="marker.label"
+                    [markerDraggable]="marker.draggable"
+                    (markerClick)="clickedMarker(marker, $event)"
+                    (dragEnd)="markerDragEnd(marker, $event)">
+                </agm-marker>
+              </agm-map>
+            </div>
+            
+            <div class="mb-1">
+              <h5>Jenis Layanan</h5>
+              <md-divider></md-divider>
+              <md-grid-list cols="4" style="min-height: 90px;margin-top: 10px" rowHeight="fit">
+                  <md-grid-tile *ngFor="let poly of polyclinics">   
+                    <div class="checkbox-container">
+                      <md-checkbox [(ngModel)]="poly.isChecked" [ngModelOptions]="{standalone: true}">{{poly.name}}</md-checkbox> 
+                    </div>                            
+                  </md-grid-tile>
+                </md-grid-list>
+            </div>
+            <md-autocomplete #regencyAuto="mdAutocomplete" [displayWith]="displayFn">
+            <md-option *ngFor="let item of regencys | async" [value]="item">
+              <span>{{ item.name }}</span>
+              <span> ({{item.region.name}}) </span>
+            </md-option>
+          </md-autocomplete>
+
+        </md-card-content>
+      </md-tab> 
+      <md-tab>
+        <ng-template md-tab-label>Jam Praktek</ng-template>
+        <md-card-content>
+            <ngx-datatable                
+              class="material"
+              [columnMode]="'force'"
+              [headerHeight]="50"
+              [footerHeight]="0"
+              [rowHeight]="'auto'"               
+              [rows]="operatingHours">
+
+            <ngx-datatable-column name="Hari">               
+              <ng-template let-row="row" ngx-datatable-cell-template>{{getDayName(row.day)}}</ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Jam Praktek">                
+              <ng-template let-row="row"  ngx-datatable-cell-template>
+                <span *ngIf="row.isClossed">Tutup</span>
+                <span *ngIf="!row.isClossed">{{row.startTime}} - {{row.endTime}}</span>
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="">                 
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                <button *ngIf="!row.isClossed" md-raised-button md-button-sm class="mr-1" color="teal" type="button" (click)="openOperatingHours(row.day, row.startTime, row.endTime)">
+                  <md-icon>schedule</md-icon> Ubah</button>     
+                <button *ngIf="row.isClossed" md-raised-button md-button-sm class="mr-1" color="teal" type="button" (click)="openCloseClinic(row.day, false)">
+                  <md-icon class="menu-caret">alarm_add</md-icon> Buka</button>      
+                <button *ngIf="!row.isClossed" md-raised-button md-button-sm class="mr-1" color="warn" type="button" (click)="openCloseClinic(row.day, true)">
+                  <md-icon class="menu-caret">alarm_off</md-icon> Tutup</button>                    
+              </ng-template>
+            </ngx-datatable-column>  
+
+          </ngx-datatable>
+        </md-card-content>
+      </md-tab>  
+      <md-tab>
+        <ng-template md-tab-label>Deskripsi</ng-template>
+        <md-card-content>
+          <div fxLayout="row" fxLayoutAlign="start center" class="mb-1">              
+            <md-input-container class="ml-xs mr-xs" style="width: 100%">                
+              <textarea mdInput maxLength="255" placeholder="Deskripsi" [(ngModel)]="hospital.description"
+                value="just test" rows="5" formControlName="description" #description ></textarea>
+                <md-hint align="end">{{description.characterCount}} / 255</md-hint>
+            </md-input-container>
+           
+          </div> 
+          <!--<div fxLayout="row" fxLayoutAlign="start center" class="mb-1">             
+            <editor></editor>
+          </div>-->             
+        </md-card-content>
+      </md-tab>    
+    </md-tab-group>
+    
+    <md-card-actions>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <button md-raised-button color="warn" type="button" (click)="cancel()">Cancel</button>
+        <button md-raised-button  color="primary" type="submit" [disabled]="!form.valid">Save</button>
+        <button md-raised-button  color="primary" type="button" (click)="saveContinue()" [disabled]="!form.valid">Save & Continue</button>        
+      </div>
+    </md-card-actions>
+  </form>
+  <md-card-footer>
+    <md-progress-bar *ngIf="onRequest" mode="indeterminate"></md-progress-bar>
+  </md-card-footer>
+</md-card>

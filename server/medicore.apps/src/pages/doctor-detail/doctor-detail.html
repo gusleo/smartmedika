@@ -1,0 +1,266 @@
+<!--
+  Generated template for the DoctorDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Tentang Dokter</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-right color="royal">
+				<ion-icon name="share-alt"></ion-icon>
+			</button>
+      <button ion-button icon-right color="royal">
+				<ion-icon name="alert"></ion-icon>
+			</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="home">
+  <ion-grid>
+    <ion-row class="header">
+      <ion-col class="avatar">
+        <img src="assets/images/avatar/0.jpg"><br>
+        <label subitem-title>Dr. IB Upadana Sp.Og</label>
+        <hr>
+        <label subitem-subtitle>Spesialis Organ Dalam, Lulusan Fakultas Kedokteran Universitas Udayana</label><br>
+        <label subitem-subtitle>Dokter Spesialis Organ Dalam di RS. Sanglah</label><br>
+        <ion-icon>
+          <i icon-small class="icon icon-file-document"></i>
+        </ion-icon>
+        <label subitem-subtitle> Pengalaman: 13 Tahun </label>
+        <ion-icon>
+          <i icon-small class="icon icon-heart"></i>
+        </ion-icon>
+        <label subitem-subtitle> 91% (Rating 20K)</label>
+      </ion-col>
+    </ion-row>
+    <ion-row class="body-detail">
+      <ion-col>
+        <ion-segment [(ngModel)]="category">
+          <ion-segment-button value="info">
+            Info
+          </ion-segment-button>
+          <!-- <ion-segment-button value="galery">
+            Galery
+          </ion-segment-button> -->
+          <ion-segment-button value="feed">
+            Feed
+          </ion-segment-button>
+          <ion-segment-button value="ulasan">
+            Ulasan
+          </ion-segment-button>
+        </ion-segment>
+        <ion-row class="gallery">
+          <ion-col>
+            <div [ngSwitch]="category">
+              <ion-list *ngSwitchCase="'info'">
+                <!-- <ion-item>
+                  <ion-toolbar default-button>
+                    <h2 header-title>Klinik Bunda Setia</h2>
+                    <ion-icon>
+                      <i icon-small class="icon icon-compass"></i>
+                    </ion-icon>
+                    <label item-title> Jalan Gatsu Timur no. 12A, Denpasar</label>
+                    <ion-buttons end>
+                      <button (click)="onButtonClick(0)" ion-button icon-only>
+                      <ion-icon [name]="kalenderPetugas ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
+                    </button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                  <div tem-title *ngIf="kalenderPetugas">Cilukbaaa</div>
+                </ion-item>
+                <ion-item>
+                  <ion-toolbar default-button>
+                    <h2 header-title>Klinik Bunda Setia</h2>
+                    <ion-icon>
+                      <i icon-small class="icon icon-compass"></i>
+                    </ion-icon>
+                    <label item-title> Jalan Gatsu Timur no. 12A, Denpasar</label>
+                    <ion-buttons end>
+                      <button (click)="onButtonClick(1)" ion-button icon-only>
+                      <ion-icon [name]="jadwalPetugas ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
+                    </button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                  <div item-title *ngIf="jadwalPetugas">Cilukbaaa</div>
+                </ion-item> -->
+
+                <ion-grid no-padding>
+                  <ion-row>
+                    <ion-col col-12 no-padding no-margin>
+                      <ion-list>
+                        <div no-margin no-padding class="collapsible">
+                          <div margin *ngFor="let group of help.items;">
+                            <!-- Expandable Full image with CTA Header-->
+                            <div class="collapsible-header">
+                              <ion-item no-margin padding no-lines background-size [ngStyle]="{'background-image': 'url(' + group.backgroundImage + ')'}">
+                                <img src="{{group.image}}">
+                                <h2 item-title left>{{group.title}}</h2>
+                                <button ion-button right button-clear-outline outline round (click)="toggleGroup(group)">
+                                      {{group.button}}
+                                </button>
+                              </ion-item>
+                            </div>
+                            <!-- Expandable Full image with CTA Body -->
+                            <div class="item-accordion" [ngClass]="{'active': isGroupShown(group) }" [hidden]="!isGroupShown(group)">
+                              <ion-item full default-button no-lines *ngFor="let item of group.items;" (click)="onEvent('onItemClick', item, $event)">
+                                <h2 padding-left subitem-title>{{item}}</h2>
+                                <ion-icon item-right white icon-small>
+                                  <i class="icon icon-chevron-right"></i>
+                                </ion-icon>
+                              </ion-item>
+                            </div>
+                            <!--end-->
+                          </div>
+                        </div>
+                      </ion-list>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+
+              </ion-list>
+
+              <!-- <ion-list *ngSwitchCase="'galery'">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col width-50><img src="assets/images/avatar/1.jpg"></ion-col>
+                    <ion-col width-50><img src="assets/images/avatar/2.jpg"></ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col width-50><img src="assets/images/avatar/3.jpg"></ion-col>
+                    <ion-col width-50><img src="assets/images/avatar/4.jpg"></ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-list> -->
+
+              <ion-list *ngSwitchCase="'feed'">
+                <!-- <ion-item>
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col width-20 class="feed-avatar">
+                        <img src="assets/images/avatar/5.jpg">
+                      </ion-col>
+                      <ion-col width-80>
+                        <h2 header-title>Dr. IB Upadana Sp.Og</h2>
+                        <label header-subtitle>Dokter Spesialis Organ Dalam di RS. Sanglah</label>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row>
+                      <ion-col>
+                        <h3 item-title>Aturlah jam makan anda sejak saat ini</h3>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row>
+                      <ion-col class="feed-bgimage">
+                        <img src="assets/images/avatar/5.jpg">
+                      </ion-col>
+                    </ion-row>
+                    <ion-row>
+                      <ion-col>
+                        <hr>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row class="feed-desc">
+                      <ion-col>
+                        <p item-title>Jadi anda memang makan pada jam-jam tertentu yang replica oakleys sudah anda atur sebelumnya. Misalnya
+                          anda mengatur electro jam makan anda 3 hari sekali dengan jam yang sudah...more
+                        </p>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row class="feed-liked">
+                      <ion-col>
+                        <ion-icon>
+                          <i icon-small class="icon icon-heart"></i>
+                        </ion-icon>
+                        <label item-title> 2000 Suka</label>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row class="feed-option">
+                      <ion-col width-30>
+                        <button icon-left button-clear>
+                          <ion-icon>
+                            <i icon-small class="icon icon-heart"></i>
+                          </ion-icon>
+                          Suka
+                        </button>
+                      </ion-col>
+                      <ion-col width-30>
+                        <button icon-left button-clear>
+                          <ion-icon>
+                            <i icon-small class="icon icon-comment"></i>
+                          </ion-icon>
+                          Konsultasi
+                        </button>
+                      </ion-col>
+                      <ion-col width-30>
+                        <button icon-left button-clear>
+                          <ion-icon>
+                            <i icon-small class="icon icon-share"></i>
+                          </ion-icon>
+                          Bagikan
+                        </button>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-item> -->
+
+
+                <ion-grid no-padding>
+                  <ion-row>
+                    <ion-col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 *ngFor="let item of dataFeed.items;let i = index">
+                      <ion-card text-left (click)="onEvent('onItemClick', item.title, $event)">
+                        <div card-image>
+                          <img images-filter src="{{item.image}}" />
+                          <h2 card-title>{{item.titleHeader}}</h2>
+                        </div>
+                        <ion-card-content>
+                          <ion-card-title>
+                            <h1 card-subtitle>{{item.title}}</h1>
+                          </ion-card-title>
+                          <p card-body-text>{{item.description}}</p>
+                        </ion-card-content>
+                        <button ion-button margin button-clear-outline round outline medium left (click)="onEvent('onShare', item, $event)">
+                          {{item.shareButton}}
+                        </button>
+                        <button ion-button margin-bottom margin-top button-clear-outline round outline medium left (click)="onEvent('onExplore', item, $event)">
+                          {{item.button}}
+                        </button>
+                      </ion-card>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-list>
+
+              <ion-list *ngSwitchCase="'ulasan'">
+                <ion-item>
+                  <h2 header-title>Wahyu U</h2>
+                  <p header-subtitle>1 Bulan yg lalu</p><br>
+                  <p item-title>Pelayanan yang sangat ramah, dengan diagnosa yang tepat saya makin sehat dan bugar<br>terima kasih</p>
+                </ion-item>
+                <ion-item>
+                  <h2 header-title>Andi</h2>
+                  <p header-subtitle>1 hari yg lalu</p><br>
+                  <p item-title>Semua penyakit sembuh<br>terima kasih</p>
+                </ion-item>
+              </ion-list>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-buttons>
+    <button ion-button block default-button>
+      Pesan Tempat
+    </button>
+  </ion-buttons>
+</ion-footer>

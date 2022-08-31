@@ -1,0 +1,31 @@
+﻿@model LoggedOutViewModel
+
+@{ 
+	// set this so the layout rendering sees an anonymous user
+	ViewData["signed-out"] = true;
+	ViewData["Title"] = "Logged Out";
+	Layout = "_CredentialLayout";
+}
+
+<div class="wrap-login100">
+	<section>
+		<span class="login100-form-title p-b-34 p-t-25">
+			You are now logged out
+		</span>
+
+		<span class="login100-form-title p-b-27" style="font-size:14px">
+			<span>
+				Click <a class="gold-link" href="@Model.PostLogoutRedirectUri">here</a> to return to the
+				<span>SmartMedika</span> Dashboard.
+			</span>
+		</span>
+	</section>
+</div>
+
+@section scripts
+{
+    @if (Model.AutomaticRedirectAfterSignOut)
+    {
+        <script src="~/js/signout-redirect.js"></script>
+    }
+}

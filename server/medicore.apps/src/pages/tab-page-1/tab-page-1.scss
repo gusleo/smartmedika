@@ -1,0 +1,37 @@
+.tab-1 {
+    .home {
+ 
+        scroll-content {
+            display: flex;
+            flex-direction: column;
+        }
+    
+        ion-grid {
+            padding: 0;
+            height: 100%;
+        }
+    }
+
+    .header {
+        flex: 1;
+        // background-image: url('../assets/images/background/bghospital.jpg');
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: white;
+        text-align: center;
+    }
+
+    .slides {
+        height: 180px;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .body-detail {
+        flex: 1.6;
+        // background-color: map-get($colors, smbasecolor);
+        // margin-top: -50px;
+    }
+}

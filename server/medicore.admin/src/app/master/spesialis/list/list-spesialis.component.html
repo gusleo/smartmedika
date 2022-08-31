@@ -1,0 +1,61 @@
+<div class="animated fadeIn">
+    <div class="card">
+        <div class="card-header">Daftar Spesialis</div>
+        <div class="card-block">
+            <div class="row mb-1">                    
+                <div class="col-md-12">     
+                    <button type="submit" (click)="bringFileSelector();" class="btn btn-secondary active">Import dari Excel</button>
+                    <input #importFile type="file" hidden="true" (change)="onFiles($event)">                                                    
+                    <button type="submit" class="btn btn-primary" (click)="tambah()">Register Spesialis Baru</button>
+                </div> 
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>                        
+                        <th>Gelar</th>
+                        <th>Fungsi</th>
+                        <th>Deskripsi</th>
+                        <th style="width: 130px;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of result; let i = index">
+                        <td>{{ i + 1 }}</td>                        
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.alias }}</td>
+                        <td>{{ item.description }}</td>
+                        <td>
+                            <button type="submit" class="btn btn-sm btn-success" [routerLink]="['/master/spesialis/register-spesialis',item.id]">Edit</button>
+                            <button type="submit" class="btn btn-sm btn-danger" (click)="showChildModal(item.id, item.name)">Hapus</button>                            
+                        </td>
+                    </tr>
+                </tbody>              
+            </table>
+        </div>
+    </div>
+</div>
+
+<div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="position:-ms-page;">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ titleModal }}</h4>
+                <button type="button" class="close" (click)="hideChildModal()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div style="font-size:16px;">{{ messageModal }}</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)="hideChildModal()">Batal</button>
+                <button type="button" class="btn btn-primary" (click)="onModalClick(ids)">{{ buttonTitleModal }}</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<toaster-container [toasterconfig]="toasterconfig"></toaster-container>

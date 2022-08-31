@@ -1,0 +1,251 @@
+<div class="animated fadeIn">
+    <div class="card">
+        <div class="card-header">Register Clinic</div>
+        <div class="card-block">
+        <div class="row">
+            <div class="col-md-12 mb-2">
+                <!-- Nav tabs -->
+                <tabset>
+                    <tab>
+                        <template tabHeading><i class="icon-user-follow"></i> Profile</template>
+                        <div class="animated fadeIn">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <profile-picture-uploader [picture]="picture" [uploaderOptions]="uploaderOptions" (otImage)="handleOTImage($event)"></profile-picture-uploader>
+                                    
+                                    <div>&nbsp;</div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label for="name_klinik">Nama Klinik</label>
+                                                <input class="form-control input-lg" placeholder="Input Nama Klinik" [(ngModel)]="model.name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="name_telp_primary">No. Telp (Primary)</label>
+                                                <input class="form-control input-lg" placeholder="Input Nomor Telepon" [(ngModel)]="phones[1].phone">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="name_telp_secondary">No. Telp (Secondary)</label>
+                                                <input class="form-control input-lg" id="noTelpSecond" placeholder="Input Nomor Telepon" [(ngModel)]="phones[1].phone">
+                                            </div>
+                                        </div>                        
+                                    </div>                    
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="name_email">Email</label>
+                                                <input class="form-control input-lg" id="email" placeholder="Input Email">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="name_website">Website</label>
+                                                <input class="form-control input-lg" id="website" placeholder="Input Website" [(ngModel)]="model.website">
+                                            </div>
+                                        </div>                        
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="name_klinik">Alamat</label>
+                                                <input  class="form-control input-lg" id="alamat" placeholder="Input Alamat" [(ngModel)]="model.Address">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="name_klinik">Kabupaten/Kota</label>
+                                                <ng-select
+                                                    [allowClear]="true"
+                                                    
+                                                    [items]="regensName"
+                                                    (data)="refreshValue($event)"
+                                                    (selected)="selected($event)"
+                                                    (removed)="removed($event)"
+                                                    placeholder="No city selected">
+                                                </ng-select>                                                
+                                            </div>
+                                        </div>                                        
+                                    </div>                                        
+                                    <h4><strong>Lokasi</strong></h4>
+                                        <sebm-google-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+                                            <sebm-google-map-marker [latitude]="latitude" [longitude]="longitude" [label]="'H'" [markerDraggable]="true" (dragEnd)="markerDragEnd($event)"></sebm-google-map-marker>
+                                        </sebm-google-map>                                         
+                                    <div>&nbsp;</div>
+                                    <h4><strong> Jenis Layanan</strong></h4>
+                                    <table class="table table-bordered table-striped table-condensed">
+                                        <tbody>
+                                            <tr *ngFor="let row of newPolyClinicList; let i = index">
+                                                <td *ngFor="let item of row">{{item.name}}</td>   
+                                                <td *ngFor="let item of row">
+                                                    <div class="checkbox">
+                                                        <label class="switch switch-text switch-pill switch-success">
+                                                            <input type="checkbox" class="switch-input">
+                                                            <span class="switch-label" data-on="On" data-off="Off"></span>
+                                                            <span class="switch-handle"></span>
+                                                        </label>                                                    
+                                                    </div>                                                
+                                                </td>                                                
+                                            </tr>
+                                                                                
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>                    
+                    </tab>
+                    <tab>
+                        <template tabHeading><i class="icon-clock"></i> Jam Buka</template>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" (click)="showChildModal()"><i class="fa fa-edit"></i> Ubah Jam Buka</button>
+                        <div>&nbsp;</div>
+                        <table class="table table-bordered table-striped table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Hari</th>
+                                    <th>Jam Buka</th>
+                                </tr>
+                            </thead>    
+                            <tbody>
+                                <tr>
+                                    <td>Senin</td>                                       
+                                    <td>18:00 PM - 22:00 PM</td>
+                                </tr>
+                                <tr>
+                                    <td>Selasa</td>                                       
+                                    <td>18:00 PM - 22:00 PM</td>
+                                </tr>
+                                <tr>
+                                    <td>Rabu</td>                                       
+                                    <td>18:00 PM - 22:00 PM</td>
+                                </tr>
+                                <tr>
+                                    <td>Kamis</td>                                       
+                                    <td>Tutup</td>
+                                </tr>
+                                <tr>
+                                    <td>Jumat</td>                                       
+                                    <td>18:00 PM - 22:00 PM</td>
+                                </tr>
+                                <tr>
+                                    <td>Sabtu</td>                                       
+                                    <td>Libur</td>
+                                </tr>
+                                <tr>
+                                    <td>Minggu</td>                                       
+                                    <td>Libur</td>
+                                </tr>                                                                                                                                                                                                                                               
+                            </tbody>
+                        </table>
+                    </tab>
+                    <tab>
+                        <template tabHeading><i class="icon-book-open"></i> Deskripsi</template>
+                        <h4><strong>Deskripsi</strong></h4>                        
+                        <simple-tiny
+                            [elementId]="'my-editor-id'"
+                            (onEditorKeyup)="keyupHandlerFunction($event)">
+                        </simple-tiny>
+                        <div>&nbsp;</div>
+                        <h4><strong>Gallery</strong></h4>                        
+                        <div class="row">
+                            <div class="col-sm-6 col-md-4">
+                                <galeri-picture-uploader [galeriPhoto]="galeriPhoto" [defaultGaleri]="defaultGaleri" [uploaderURL]="uploaderURL" (otGalery)="handleGaleri1($event)"></galeri-picture-uploader>                            
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <galeri-picture-uploader [galeriPhoto]="galeriPhoto" [defaultGaleri]="defaultGaleri" [uploaderURL]="uploaderURL" (otGalery)="handleGaleri2($event)"></galeri-picture-uploader>                            
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <galeri-picture-uploader [galeriPhoto]="galeriPhoto" [defaultGaleri]="defaultGaleri" [uploaderURL]="uploaderURL" (otGalery)="handleGaleri3($event)"></galeri-picture-uploader>                            
+                            </div>
+                        </div>
+
+
+                    </tab>                
+                </tabset>            
+            </div>
+        </div>
+        </div>
+        <div class="card-footer text-center">
+            <button type="button" class="btn btn-lg btn-primary" data-toggle="modal" (click)="saveClinicProfile()"><i class="fa fa-dot-circle-o"></i> Simpan</button>
+        </div>        
+    </div>
+</div>
+
+
+<div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="position:-ms-page;">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Input Jam Buka</h4>
+                <button type="button" class="close" (click)="hideChildModal()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="name_jam_buka">Jam Buka</label>
+                                <input type="time" ngModel="mytime" class="form-control input-lg" id="jamBuka" placeholder="Input Jam Buka">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="name_jam_tutup">Jam Tutup</label>
+                                <input type="time" ngModel="mytime" class="form-control input-lg" id="jamTutup" placeholder="Input Jam Tutup">
+                            </div>
+                        </div>                        
+                    </div>
+                
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <label class="checkbox-inline" for="inline-checkbox1">
+                            <input type="checkbox" id="inline-checkbox1" name="inline-checkbox1" value="option1"> Senin 
+                        </label>                        
+                    </div>  
+                    <div class="col-sm-6 col-md-4">
+                        <label class="checkbox-inline" for="inline-checkbox1">
+                            <input type="checkbox" id="inline-checkbox1" name="inline-checkbox1" value="option1"> Selasa 
+                        </label>
+                    </div>  
+                    <div class="col-sm-6 col-md-4">
+                        <label class="checkbox-inline" for="inline-checkbox1">
+                            <input type="checkbox" id="inline-checkbox1" name="inline-checkbox1" value="option1"> Rabu 
+                        </label>
+                    </div>  
+                    <div class="col-sm-6 col-md-4">
+                        <label class="checkbox-inline" for="inline-checkbox1">
+                            <input type="checkbox" id="inline-checkbox1" name="inline-checkbox1" value="option1"> Kamis 
+                        </label>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <label class="checkbox-inline" for="inline-checkbox1">
+                            <input type="checkbox" id="inline-checkbox1" name="inline-checkbox1" value="option1"> Jumat 
+                        </label>
+                    </div>                      
+                    <div class="col-sm-6 col-md-4">
+                        <label class="checkbox-inline" for="inline-checkbox1">
+                            <input type="checkbox" id="inline-checkbox1" name="inline-checkbox1" value="option1"> Sabtu 
+                        </label>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <label class="checkbox-inline" for="inline-checkbox1">
+                            <input type="checkbox" id="inline-checkbox1" name="inline-checkbox1" value="option1"> Minggu 
+                        </label>
+                    </div>                    
+                </div>                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)="hideChildModal()">Batal</button>
+                <button type="button" class="btn btn-primary">Simpan</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

@@ -1,0 +1,13 @@
+<div class="row text-center">
+    <div class="col-sm-12">
+        
+        <div class="picture-group">
+            <div class="picture-wrapper">
+                <img src="{{ picture }}" class="img-avatar" alt="Avatar" style="width:10%;">
+            </div>
+            <a href class="change-picture" (click)="bringFileSelector();" style="text-decoration: none;color:black;"><img src="{{ camera }}" class="img" style="width:20px;"> <strong>Upload Photo</strong></a>    
+            <input #fileProfileUpload type="file" hidden="true" id="uploadFile" (change)="onFiles($event)">    
+        </div>
+
+    </div>
+</div>

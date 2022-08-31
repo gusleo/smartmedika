@@ -1,0 +1,53 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-12">
+             <div class="card">
+                <form [formGroup]="spesialisForm" (submit)="submitForm()">
+                <div class="card-header text-center">
+                    <h3>Registrasi Spesialis</h3>                    
+                </div>                 
+                 <div class="card-block">                   
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="forName">Gelar</label>
+                                <input type="text" formControlName="name" class="form-control input-lg" [(ngModel)]="model.name" placeholder="Input Gelar">
+                                <control-messages [control]="spesialisForm.controls.name"></control-messages>
+                            </div>
+                            <div class="form-group">
+                                <label for="forName">Fungsi</label>
+                                <input type="text" formControlName="fungsi" class="form-control input-lg" [(ngModel)]="model.alias" placeholder="Input Fungsi">
+                                <control-messages [control]="spesialisForm.controls.fungsi"></control-messages>                                
+                            </div>
+                            <div class="form-group">
+                                <label for="forName">Deskripsi</label>
+                                <textarea formControlName="deskripsi" [(ngModel)]="model.description" placeholder="Deskripsi" class="form-control input-lg"></textarea>
+                                <control-messages [control]="spesialisForm.controls.deskripsi"></control-messages>
+                            </div> 
+                              <div class="form-group">
+                                <label for="forName">Tipe Spesialis</label>
+                                <select formControlName="tipe" id="tipe" class="form-control input-lg" size="1" [(ngModel)]="model.staffType">
+                                    <option *ngFor="let row of resultStaff" [value]="row.id">{{ row.name }}</option>
+                                </select>  
+                                <control-messages [control]="spesialisForm.controls.tipe"></control-messages>                                                                                              
+                            </div>                                                                                  
+                            <div class="form-group">
+                                <label for="forName">Poliklinik</label>
+                                <select formControlName="poli" id="poli" class="form-control input-lg" size="1" [(ngModel)]="model.polyClinicId">
+                                    <option *ngFor="let row of resultPoli" [value]="row.id">{{ row.name }}</option>
+                                </select>
+                                <control-messages [control]="spesialisForm.controls.poli"></control-messages>                                             
+                            </div>                                                        
+                            
+                        </div>                        
+                    </div>
+                </div>
+                <div class="card-footer text-center">
+                    <button type="submit" class="btn btn-lg btn-primary" [disabled]="!spesialisForm.valid"><i class="fa fa-dot-circle-o"></i> Simpan</button>
+                </div>
+                </form>                                
+            </div>
+        </div>
+    </div>
+</div>
+<toaster-container [toasterconfig]="toasterconfig"></toaster-container>

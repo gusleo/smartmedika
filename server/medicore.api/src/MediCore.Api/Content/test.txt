@@ -1,0 +1,10 @@
+﻿using System;
+namespace MediCore.Api.Content
+{
+ public class test
+ {
+     public test()
+     {
+     }
+ }
+}

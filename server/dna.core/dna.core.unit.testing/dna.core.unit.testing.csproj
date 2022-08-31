@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	 <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>dna.core.unit.testing</AssemblyName>
+    <PackageId>dna.core.unit.testing</PackageId>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.1" />
+    <PackageReference Include="Moq" Version="4.9.0" />
+  </ItemGroup>
+
+</Project>

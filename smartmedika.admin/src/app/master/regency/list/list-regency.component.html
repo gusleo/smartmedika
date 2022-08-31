@@ -1,0 +1,57 @@
+<md-toolbar color="white">
+  <div fxLayout="row" fxLayoutAlign="end center" style="width: 100%">             
+      <button md-mini-fab (click)="openRegisterDialog()" color="primary">
+        <md-icon>add_circle</md-icon>
+      </button>
+  </div>
+  
+</md-toolbar>
+<ngx-datatable
+  class="material"
+  [rows]="results"
+  [columnMode]="'force'"
+  [headerHeight]="50"
+  [footerHeight]="50"
+  [rowHeight]="'auto'"
+  [externalPaging]="true"
+  [count]="total"
+  [offset]="page"
+  [limit]="PAGE_SIZE"
+  (page)='onPage($event)'>
+  
+    <ngx-datatable-column name="No." [width]="15">  
+      <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+        <strong>{{ rowIndex + 1}}</strong>
+      </ng-template>     
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Kabupaten">  
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{row.name}}
+        </ng-template>     
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Provinsi">  
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{row.region.name}}
+        </ng-template>     
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Status" [width]="50">  
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <md-select placeholder="" [(ngModel)]="row.status"  (ngModelChange)="onStatusChange(row.id, $event)">
+            <md-option *ngFor="let item of status" [value]="item.value">
+              {{ item.name }}
+            </md-option>
+          </md-select>
+        </ng-template>     
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="" [width]="100">                 
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        <button md-raised-button md-button-sm class="mr-1" color="teal" type="button" (click)="openRegisterDialog(row)">
+          <md-icon class="menu-caret">create</md-icon> Edit
+        </button>          
+                 
+      </ng-template>
+    </ngx-datatable-column>
+
+</ngx-datatable>

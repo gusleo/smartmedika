@@ -1,0 +1,193 @@
+<!--
+  Generated template for the ClinicDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Tentang Klinik</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-right color="royal">
+				<ion-icon name="share-alt"></ion-icon>
+			</button>
+      <button ion-button icon-right color="royal">
+				<ion-icon name="alert"></ion-icon>
+			</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="home">
+  <ion-grid>
+    <ion-row class="header">
+      <ion-col class="avatar">
+        <img src="assets/images/avatar/0.jpg"><br>
+        <label subitem-title>Klinik Bunda Setia</label>
+        <hr>
+        <label subitem-subtitle>Jalan Gatsu Timur no. 12A, Denpasar</label><br>
+        <ion-icon>
+          <i icon-small class="icon icon-human"></i>
+        </ion-icon>
+        <label subitem-subtitle> Jumlah Dokter: 10 orang </label>
+        <ion-icon>
+          <i icon-small class="icon icon-heart"></i>
+        </ion-icon>
+        <label subitem-subtitle> 91% (Rating 20K)</label>
+      </ion-col>
+    </ion-row>
+    <ion-row class="body-detail">
+      <ion-col>
+        <ion-segment [(ngModel)]="category">
+          <ion-segment-button value="info">
+            Info
+          </ion-segment-button>
+          <ion-segment-button value="dokter">
+            Dokter
+          </ion-segment-button>
+          <ion-segment-button value="feed">
+            Feed
+          </ion-segment-button>
+          <ion-segment-button value="ulasan">
+            Ulasan
+          </ion-segment-button>
+        </ion-segment>
+        <!-- <ion-row class="body-title">
+          <ion-col>
+            <label>Galery</label>
+          </ion-col>
+        </ion-row> -->
+        <ion-row class="gallery">
+          <ion-col>
+            <div [ngSwitch]="category">
+              <ion-list *ngSwitchCase="'info'">
+                <ion-item>
+                  <h2 header-title>Jam Buka Klinik</h2>
+                  <p header-subtitle>Senin - Jumat</p>
+                  <p icon-left item-title>
+                    <ion-icon name="time"></ion-icon>
+                    07.00 WITA - 21.00 WITA
+                  </p>
+                  <p header-subtitle>Senin, Minggu, Hari Libur Nasional</p>
+                  <p icon-left item-title>
+                    <ion-icon name="time"></ion-icon>
+                    09.00 WITA - 12.00 WITA
+                  </p>
+                  <hr>
+                  <h2 header-title>Jam Buka UGD</h2>
+                  <p icon-left item-title>
+                    <ion-icon name="time"></ion-icon>
+                    24 Jam
+                  </p>
+                  <div #map id="map" style="height:100%;"></div>
+                </ion-item>
+              </ion-list>
+
+              <ion-list *ngSwitchCase="'dokter'">
+                <ion-grid no-padding>
+                  <ion-row>
+                    <ion-col col-12>
+                      <ion-list no-margin>
+                        <ul no-margin no-padding class="collapsible">
+                          <li *ngFor="let group of dokter.items;">
+                            <!-- List big image Header -->
+                            <div class="collapsible-header">
+                              <ion-item no-padding no-lines>
+                                <ion-thumbnail item-left no-margin>
+                                  <img [src]="group.image" alt="{{group.title}}" />
+                                </ion-thumbnail>
+                                <div title-block>
+                                  <h2 padding-left item-title>{{group.title}}</h2>
+                                  <h3 padding-left item-subtitle>{{group.description}}</h3>
+                                  <h3 padding-left item-subtitle>{{group.location}}</h3>
+                                  <div padding-left>
+                                    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                                  </div>
+                                </div>
+                                <div social>
+                                  <!-- <ion-icon>
+                                    <i ng-if="group.iconLike" class="icon {{group.iconLike}}" (click)="onEvent('onLike', group, $event)"></i>
+                                  </ion-icon> -->
+                                  <!-- <ion-icon>
+                                    <i ng-if="group.iconFavorite" class="icon {{group.iconFavorite}}" (click)="onEvent('onFavorite', group, $event)"></i>
+                                  </ion-icon>
+                                  <ion-icon>
+                                    <i ng-if="group.iconShare" class="icon {{group.iconShare}}" (click)="onEvent('onShare', group, $event)"></i>
+                                  </ion-icon> -->
+                                  <button padding-left default-button round ion-button (click)="toggleGroup(group)">Jadwal</button>
+                                  <button padding-left default-button round ion-button (click)="onEvent('onBooking', group, $event)">Booking</button>
+                                </div>
+                              </ion-item>
+                            </div>
+                            <!-- List big image Body -->
+                            <div class="item-accordion" [ngClass]="{'active': isGroupShown(group) }" [hidden]="!isGroupShown(group)">
+                              <!-- <ion-item transparent no-lines *ngFor="let item of group.items;" (click)="onEvent('onItemClick', item.title, $event)">
+                                <ion-thumbnail item-left>
+                                  <img [src]="item.image" alt="{{item.title}}" />
+                                </ion-thumbnail>
+                                <h2 subitem-title>{{item.title}}</h2>
+                                <h3 subitem-subtitle>{{item.description}}</h3>
+                                <ion-icon white item-right><i class="icon {{item.iconPlay}}"></i></ion-icon>
+                              </ion-item> -->
+                              <ion-item transparent no-lines *ngFor="let item of group.items;" (click)="onEvent('onItemClick', item.title, $event)">
+                                <ion-buttons start>
+                                  <button ion-button icon-left default-button>
+                                  <ion-icon name="calendar"></ion-icon>
+                                  08.00 - 12.00
+                                </button>
+                                </ion-buttons>
+                                <!-- <ion-icon white item-right><i class="icon {{item.iconPlay}}"></i></ion-icon> -->
+                              </ion-item>
+                            </div>
+                            <!--end-->
+                          </li>
+                        </ul>
+                      </ion-list>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-list>
+
+              <ion-list *ngSwitchCase="'feed'">
+                <ion-item>
+                  <h2 header-title>Makanlah tepat waktu</h2>
+                  <p header-subtitle>1 Bulan yg lalu</p><br>
+                  <p item-title>Makanlah tepat waktu jika ingin tetap bugar</p>
+                </ion-item>
+                <ion-item>
+                  <h2 header-title>Susu kuda, amankah?</h2>
+                  <p header-subtitle>1 hari yg lalu</p><br>
+                  <p item-title>Pernahkah Anda mengkonsumsi susu kuda?</p>
+                </ion-item>
+              </ion-list>
+
+              <ion-list *ngSwitchCase="'ulasan'">
+                <ion-item>
+                  <h2 header-title>Wahyu U</h2>
+                  <p header-subtitle>1 Bulan yg lalu</p><br>
+                  <p item-title>Pelayanan yang sangat ramah, dengan diagnosa yang tepat saya makin sehat dan bugar<br>terima kasih</p>
+                </ion-item>
+                <ion-item>
+                  <h2 header-title>Andi</h2>
+                  <p header-subtitle>1 hari yg lalu</p><br>
+                  <p item-title>Semua penyakit sembuh<br>terima kasih</p>
+                </ion-item>
+              </ion-list>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<!-- <ion-footer>
+  <ion-buttons>
+    <button ion-button block default-button>
+      Pesan Tempat
+    </button>
+  </ion-buttons>
+</ion-footer> -->

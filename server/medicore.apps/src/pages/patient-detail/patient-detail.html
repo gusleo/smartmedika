@@ -1,0 +1,65 @@
+<!--
+  Generated template for the PatientDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar header-color>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-left>Detil Pasien</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!-- Themes Login + logo -->
+<ion-content white-background>
+  <ion-grid>
+    <ion-row padding>
+      <ion-col col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+        <!---Input field name-->
+        <ion-item no-padding transparent>
+          <ion-label floating>{{data.name}}</ion-label>
+          <ion-input required type="text" [(ngModel)]="patient.patientName"></ion-input>
+        </ion-item>
+        <!---Radio button jenis kelamin-->
+        <ion-list no-padding radio-group [(ngModel)]="patient.gender">
+          <ion-list-header no-padding header-title>
+            Jenis Kelamin
+          </ion-list-header>
+          <ion-item no-padding item-title>
+            <ion-label>{{data.laki}}</ion-label>
+            <ion-radio value="0" checked></ion-radio>
+          </ion-item>
+          <ion-item no-padding item-title>
+            <ion-label>{{data.perempuan}}</ion-label>
+            <ion-radio value="1"></ion-radio>
+          </ion-item>
+        </ion-list>
+        <!---Datetime tanggal lahir-->
+        <ion-item no-padding>
+          <ion-label floating>{{data.tanggallahir}}</ion-label>
+          <ion-datetime displayFormat="DD MMMM YYYY" pickerFormat="DD MMMM YYYY" [(ngModel)]="patient.dateOfBirth">
+          </ion-datetime>
+        </ion-item>
+        <!---Select hubungan-->
+        <ion-item no-padding>
+          <ion-label>Hubungan</ion-label>
+          <ion-select [(ngModel)]="patient.relationshipStatus">
+            <ion-option value="0">Suami/Istri</ion-option>
+            <ion-option value="1">Orang tua</ion-option>
+            <ion-option value="2">Anak</ion-option>
+            <ion-option value="3">Lainnya</ion-option>
+          </ion-select>
+        </ion-item>
+        <!---Save button-->
+        <button ion-button button-clear clear right (click)="onUpdate(patient)">{{data.savebutton}}</button>
+      </ion-col>
+      <ion-col col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+        <!--LOGO-->
+        <img left [src]="data.logo">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

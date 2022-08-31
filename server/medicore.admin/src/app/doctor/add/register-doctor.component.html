@@ -1,0 +1,103 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-12">
+
+             <div class="card">
+                <div class="card-header text-center">
+                    <h3>Registrasi Dokter</h3>                    
+                </div>                 
+                 <div class="card-block">
+                   <profile-picture-uploader [picture]="picture" [uploaderOptions]="uploaderOptions"></profile-picture-uploader>
+                    <div>&nbsp;</div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="name_depan">Nama Depan</label>
+                                <input type="text" class="form-control input-lg" id="namaDepan" placeholder="Input Nama Depan">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="name_belakang">Nama Belakang</label>
+                                <input type="text" class="form-control input-lg" id="namaBelakang" placeholder="Input Nama Belakang">
+                            </div>
+                        </div>                        
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="name_spesialis">Spesialis</label>
+                                <select id="specialis" name="specialis" class="form-control input-lg" size="1">
+                                    <option value="0">Please select</option>
+                                    <option value="1">Option #1</option>
+                                    <option value="2">Option #2</option>
+                                    <option value="3">Option #3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="name_nosip">No. SIP</label>
+                                <input type="text" class="form-control input-lg" id="noSip" placeholder="Input No. SIP">
+                            </div>
+                        </div>                        
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="name_email">Email</label>
+                                <input type="text" class="form-control input-lg" id="email" placeholder="Input Email">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="name_telp">No. Telp</label>
+                                <input type="text" class="form-control input-lg" id="noTelp" placeholder="Input Nomor Telepon">
+                            </div>
+                        </div>                        
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="name_alamat">Alamat</label>
+                                <input type="text" class="form-control input-lg" id="alamat" placeholder="Input Alamat">                                
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="name_city">City</label>
+                                <select id="city" name="city" class="form-control input-lg" size="1">
+                                    <option value="0">Please select</option>
+                                    <option value="1">Option #1</option>
+                                    <option value="2">Option #2</option>
+                                    <option value="3">Option #3</option>
+                                </select>                                
+                            </div>
+                        </div>                        
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">                             
+                                <div class="checkbox">
+                                    <label for="checkbox1">
+                                        <input type="checkbox" id="checkbox1" name="checkbox1" value="option1">I agree with the terms and conditions.
+                                    </label>
+                                </div>                             
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card-footer text-center">
+                    <button type="button" class="btn btn-lg btn-primary" data-toggle="modal"><i class="fa fa-dot-circle-o"></i> Simpan</button>
+                </div>
+                                
+            </div>
+        </div>
+    </div>
+</div>

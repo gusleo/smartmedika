@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFramework>netstandard2.0</TargetFramework>
+	  <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	  <PackageId>MediCore.Service</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="global.json">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\dna.core\dna.core.auth\dna.core.auth.csproj" />
+    <ProjectReference Include="..\..\dna.core\dna.core.service\dna.core.service.csproj" />
+    <ProjectReference Include="..\MediCore.Data\MediCore.Data.csproj" />
+    <ProjectReference Include="..\..\dna.core\dna.core.data\dna.core.data.csproj" />
+    <ProjectReference Include="..\..\dna.core\dna.core.libs\dna.core.libs.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
+    <PackageReference Include="IdentityServer4" Version="2.2.0" />
+    <PackageReference Include="IdentityServer4.AspNetIdentity" Version="2.1.0" />
+  </ItemGroup>
+
+</Project>

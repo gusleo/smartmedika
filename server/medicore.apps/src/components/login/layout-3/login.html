@@ -1,0 +1,25 @@
+<!-- Themes Login + logo -->
+<ion-content has-header white-background>
+<ion-grid>
+  <ion-row padding>
+    <ion-col col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+        <!---Input field email-->
+        <ion-item no-padding transparent>
+          <ion-label floating>{{data.email}}</ion-label>
+          <ion-input required type="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" [(ngModel)]="email"></ion-input>
+        </ion-item>
+        <!---Input field password-->
+        <ion-item no-padding transparent>
+          <ion-label floating>{{data.password}}</ion-label>
+          <ion-input required type="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+        <!---Register button-->
+        <button ion-button button-clear clear right (click)="onEvent('onLogin')">{{data.login}}</button>
+    </ion-col>
+    <ion-col col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+      <!--LOGO-->
+      <img left [src]="data.logo">
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

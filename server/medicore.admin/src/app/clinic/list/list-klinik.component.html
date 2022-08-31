@@ -1,0 +1,90 @@
+<div class="animated fadeIn">
+    <div class="card">
+        <div class="card-header">Daftar Klinik</div>
+        <div class="card-block">
+            <div class="row mb-1">
+                <!--<div class="col-md-12">-->
+                    
+                    <div class="col-md-2">                    
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                            <input type="text" class="form-control" placeholder="Search" [(ngModel)]="textSearch" />
+                        </div>
+                    </div> 
+                    <div class="col-md-3">                    
+                        <select id="lokasi" name="lokasi" class="form-control input-lg" size="1" [(ngModel)]="keywordsInt">
+                            <option [value]="0">Semua Lokasi</option>                            
+                            <option *ngFor="let row of resultRegion" [value]="row.id">{{ row.name }}</option>
+                        </select>                    
+                    </div>
+                    <div class="col-md-3">                    
+                        <button type="submit" class="btn btn-info" (click)="OnSearching($event)">Cari</button>
+                        <button type="submit" class="btn btn-secondary active">Import from Excel</button>                            
+                    </div>                
+                    <div class="col-4 text-right">
+                        <button type="submit" class="btn btn-primary" (click)="tambah()">Register Klinik Baru</button>
+                    </div>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th style="width: 20%">Nama</th>
+                        <th style="width: 10%">Kabupaten/Kota</th>
+                        <th style="width: 10%">Zip Code</th>
+                        <th style="width: 20%">Alamat</th>
+                        <th style="width: 10%">Status</th>                        
+                        <th style="width: 20%">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of result">
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.regency.name }}</td>                        
+                        <td>{{ item.zipCode }}</td>
+                        <td>{{ item.address }}</td>
+                        <td>{{ item.hospitalStatus }}</td>                        
+                        <td>
+                            <button type="submit" class="btn btn-sm btn-success" [routerLink]="['/clinic/register-clinic',item.id]">Edit</button>
+                            <button type="submit" class="btn btn-sm btn-danger" (click)="showChildModal(item.id, item.name)">Hapus</button>                            
+                        </td>
+                    </tr>
+                </tbody>
+				<tfoot>
+					<tr>					
+						<td colspan="3">
+							<div class="text-left">Showing {{_start}} to {{_end}} of {{_totalPage}} entries</div>
+						</td>
+						<td colspan="3">
+							<pagination [boundaryLinks]="true" [totalItems]="_totalPage" [itemsPerPage]="_itemsPerPage" [(ngModel)]="_currentPage" [maxSize]="maxSize"
+								class="pagination-sm pagination-right" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;" (pageChanged)="pageChanged($event)"></pagination>		
+						</td>
+                        
+					</tr>
+				</tfoot>                
+            </table>
+        </div>
+    </div>
+</div>
+
+<div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="position:-ms-page;">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ titleModal }}</h4>
+                <button type="button" class="close" (click)="hideChildModal()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div style="font-size:16px;">{{ messageModal }}</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)="hideChildModal()">Batal</button>
+                <button type="button" class="btn btn-primary" (click)="onModalClick(ids)">{{ buttonTitleModal }}</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

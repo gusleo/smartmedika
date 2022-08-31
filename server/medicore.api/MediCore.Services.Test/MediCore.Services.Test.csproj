@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFramework>netstandard2.0</TargetFramework>
+	  <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	  <ApplicationIcon />
+	  <OutputType>Library</OutputType>
+	  <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
+    <PackageReference Include="xunit" Version="2.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\medicore.layer\MediCore.Service\MediCore.Service.csproj" />
+    <ProjectReference Include="..\..\dna.core\dna.core.auth\dna.core.auth.csproj" />
+    <ProjectReference Include="..\..\dna.core\dna.core.unit.testing\dna.core.unit.testing.csproj" />
+    <ProjectReference Include="..\..\medicore.layer\MediCore.Data\MediCore.Data.csproj" />
+    <ProjectReference Include="..\..\dna.core\dna.core.data\dna.core.data.csproj" />
+    <ProjectReference Include="..\..\dna.core\dna.core.service\dna.core.service.csproj" />
+  </ItemGroup>
+
+</Project>

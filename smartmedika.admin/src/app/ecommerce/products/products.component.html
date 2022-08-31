@@ -1,0 +1,114 @@
+<md-sidenav-container class="background-none shadow-none">
+  <md-sidenav #productsnav [mode]="isOver() ? 'over' : 'side'" [opened]="!isOver()" class="pa-0 ma-0">
+    <div class="pl-1 pr-1 pb-1">
+      <h3>Price</h3>
+      <md-slider value="43"></md-slider>
+    </div>
+    <hr>
+
+    <div class="pa-1">
+      <h3 class="mt-1">Brand</h3>
+      <div class="pb-1">
+        <md-checkbox>Apple</md-checkbox>
+      </div>
+      <div class="pb-1">
+        <md-checkbox>Microsoft</md-checkbox>
+      </div>
+      <div class="pb-1">
+        <md-checkbox>Samsung</md-checkbox>
+      </div>
+      <div class="pb-1">
+        <md-checkbox>HTC</md-checkbox>
+      </div>
+      <div class="pb-1">
+        <md-checkbox>Sony</md-checkbox>
+      </div>
+      <div class="pb-1">
+        <md-checkbox>Huawei</md-checkbox>
+      </div>
+    </div>
+    <hr>
+
+    <div class="pa-1">
+      <h3>Screen Size</h3>
+      <div class="pb-1">
+        <md-checkbox>16 GB</md-checkbox>
+      </div>
+      <div class="pb-1">
+        <md-checkbox>32 GB</md-checkbox>
+      </div>
+      <div class="pb-1">
+        <md-checkbox>64 GB</md-checkbox>
+      </div>
+      <div class="pb-1">
+        <md-checkbox>128 GB</md-checkbox>
+      </div>
+    </div>
+    <hr>
+
+    <div class="pa-1">
+      <h3>OS</h3>
+      <div class="pb-1">
+        <md-checkbox>Android</md-checkbox>
+      </div>
+      <div class="pb-1">
+        <md-checkbox>iOS</md-checkbox>
+      </div>
+      <div class="pb-1">
+        <md-checkbox>Windows</md-checkbox>
+      </div>
+    </div>
+
+    <div class="pa-1">
+      <button md-raised-button color="primary">Filter</button>
+    </div>
+
+  </md-sidenav>
+  <md-toolbar color="primary" fxHide="false" fxHide.gt-sm>
+    <button (click)="productsnav.toggle()" md-icon-button>
+      <md-icon>short_text</md-icon>
+    </button>
+    <span class="mr-1 ml-1">Filter</span>
+  </md-toolbar>
+
+  <div fxLayout="row" fxLayoutWrap="wrap">
+    <div fxFlex.gt-sm="25" fxFlex.gt-xs="33.3333%" fxFlex="100" *ngFor="let product of products">
+      <md-card>
+        <div class="media-grid">
+          <figure>
+            <div class="product-badge" *ngIf="product.status === 'sale'"><span>Sale</span></div>
+            <img src="assets/images/unsplash/{{ product.id }}.jpg">
+            <figcaption>
+              <p>
+                <a href="javascript:;" mdTooltip="Add to cart" mdTooltipPosition="left">
+                  <md-icon>shopping_basket</md-icon>
+                </a>
+                <a href="javascript:;" mdTooltip="Add to favorites" mdTooltipPosition="left">
+                  <md-icon>favorite</md-icon>
+                </a>
+                <a href="javascript:;" mdTooltip="Share" mdTooltipPosition="left">
+                  <md-icon>share</md-icon>
+                </a>
+                <a href="javascript:;" mdTooltip="Bookmark" mdTooltipPosition="left">
+                  <md-icon>bookmark</md-icon>
+                </a>
+              </p>
+            </figcaption>     
+          </figure>
+        </div>
+        <md-card-content>
+          <div fxLayout="row" fxLayoutAlign="center center">
+            <div fxFlex>
+              <p class="ma-0">{{ product.name }}</p>
+              <p class="ma-0 pa-0 text-md">{{ product.description }}</p>
+            </div>
+            <div class="mat-text-primary text-xl">
+              <span class="strikethrough mat-text-muted text-sm" *ngIf="product.discounted === 'discounted'">$ {{ product.discount }}</span>
+              <span> $ {{ product.price }}</span>
+            </div>
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
+</md-sidenav-container>

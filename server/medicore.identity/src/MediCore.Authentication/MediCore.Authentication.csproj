@@ -1,0 +1,154 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>aspnet-IdentityServerWithAspNetIdentity-04C6939F-E672-4E56-B4A5-5F064EB67F23</UserSecretsId>
+    <RootNamespace>MediCore.Authentication</RootNamespace>
+    <AssemblyName>MediCore.Authentication</AssemblyName>
+    <DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="IdentityServer4.AspNetIdentity" Version="2.1.0" />
+    <PackageReference Include="IdentityServer4.EntityFramework" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.DataProtection.Redis" Version="0.4.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.1" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" PrivateAssets="All" />
+    <PackageReference Include="Serilog.AspNetCore" Version="2.1.1" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
+    <PackageReference Include="Serilog.Sinks.File" Version="4.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
+    <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.0" />
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\dna.core\dna.core.auth\dna.core.auth.csproj" />
+    <ProjectReference Include="..\..\..\dna.core\dna.core.service\dna.core.service.csproj" />
+    <ProjectReference Include="..\..\..\medicore.layer\MediCore.Service\MediCore.Service.csproj" />
+    <ProjectReference Include="..\..\..\dna.core\dna.core.data\dna.core.data.csproj" />
+    <ProjectReference Include="..\..\..\medicore.layer\MediCore.Data\MediCore.Data.csproj" />
+    <ProjectReference Include="..\..\..\dna.core\identityserver-token-exchange\src\IdentityServer.External.TokenExchange\IdentityServer.External.TokenExchange.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Resources\Model\MedicalStaffSpecialistModel.Designer.cs" />
+    <Compile Remove="Libs\ExternalUserManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Libs\ExternalLogin\" />
+    <Folder Include="wwwroot\vendor\jquery-validation\" />
+    <Folder Include="wwwroot\vendor\jquery-validation-unobtrusive\" />
+    <Folder Include="wwwroot\css\credential\" />
+    <Folder Include="wwwroot\fonts\linearicons\" />
+    <Folder Include="wwwroot\js\credential\" />
+    <Folder Include="wwwroot\vendor\modernizr\" />
+    <Folder Include="wwwroot\vendor\owlcarosel2\" />
+    <Folder Include="wwwroot\vendor\magnific-popup\" />
+    <Folder Include="wwwroot\vendor\contact-form\" />
+    <Folder Include="wwwroot\vendor\mailchimp\" />
+    <Folder Include="wwwroot\vendor\scrollup\" />
+    <Folder Include="wwwroot\vendor\wow\" />
+    <Folder Include="wwwroot\vendor\jquery-1.12.4\" />
+    <Folder Include="wwwroot\vendor\bootstrap-3.3.7\" />
+    <Folder Include="wwwroot\vendor\bootstrap-3.3.7\css\" />
+    <Folder Include="wwwroot\vendor\bootstrap-3.3.7\js\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\css\credential\util.css" />
+    <Content Remove="wwwroot\fonts\linearicons\Linearicons-Free.eot" />
+    <Content Remove="wwwroot\fonts\linearicons\Linearicons-Free.svg" />
+    <Content Remove="wwwroot\fonts\linearicons\Linearicons-Free.ttf" />
+    <Content Remove="wwwroot\fonts\linearicons\Linearicons-Free.woff" />
+    <Content Remove="wwwroot\fonts\linearicons\Linearicons-Free.woff2" />
+    <Content Remove="wwwroot\js\ajaxchimp.js" />
+    <Content Remove="wwwroot\js\contact-form.js" />
+    <Content Remove="wwwroot\js\magnific-popup.min.js" />
+    <Content Remove="wwwroot\js\main.js" />
+    <Content Remove="wwwroot\js\owl.carousel.min.js" />
+    <Content Remove="wwwroot\js\scrollUp.min.js" />
+    <Content Remove="wwwroot\vendor\modernizr\modernizr-2.8.3.min.js" />
+    <Content Remove="wwwroot\css\animate.css" />
+    <Content Remove="wwwroot\css\linearicons.css" />
+    <Content Remove="wwwroot\css\magnific-popup.css" />
+    <Content Remove="wwwroot\css\normalize.css" />
+    <Content Remove="wwwroot\css\owl.carousel.min.css" />
+    <Content Remove="wwwroot\css\responsive.css" />
+    <Content Remove="wwwroot\css\style.css" />
+    <Content Remove="wwwroot\vendor\owlcarosel2\owl.carousel.min.css" />
+    <Content Remove="wwwroot\vendor\magnific-popup\magnific-popup.css" />
+    <Content Remove="wwwroot\vendor\jquery-ui\AUTHORS.txt" />
+    <Content Remove="wwwroot\vendor\jquery-ui\LICENSE.txt" />
+    <Content Remove="wwwroot\vendor\jquery-ui\index.html" />
+    <Content Remove="wwwroot\vendor\jquery-ui\jquery-ui.css" />
+    <Content Remove="wwwroot\vendor\jquery-ui\jquery-ui.js" />
+    <Content Remove="wwwroot\vendor\jquery-ui\jquery-ui.min.css" />
+    <Content Remove="wwwroot\vendor\jquery-ui\jquery-ui.min.js" />
+    <Content Remove="wwwroot\vendor\jquery-ui\jquery-ui.structure.css" />
+    <Content Remove="wwwroot\vendor\jquery-ui\jquery-ui.structure.min.css" />
+    <Content Remove="wwwroot\vendor\jquery-ui\jquery-ui.theme.css" />
+    <Content Remove="wwwroot\vendor\jquery-ui\jquery-ui.theme.min.css" />
+    <Content Remove="wwwroot\vendor\jquery-ui\package.json" />
+    <Content Remove="wwwroot\vendor\jquery-ui\external\jquery\jquery.js" />
+    <Content Remove="wwwroot\vendor\jquery-ui\images\ui-icons_444444_256x240.png" />
+    <Content Remove="wwwroot\vendor\jquery-ui\images\ui-icons_555555_256x240.png" />
+    <Content Remove="wwwroot\vendor\jquery-ui\images\ui-icons_777620_256x240.png" />
+    <Content Remove="wwwroot\vendor\jquery-ui\images\ui-icons_777777_256x240.png" />
+    <Content Remove="wwwroot\vendor\jquery-ui\images\ui-icons_cc0000_256x240.png" />
+    <Content Remove="wwwroot\vendor\jquery-ui\images\ui-icons_ffffff_256x240.png" />
+    <Content Remove="wwwroot\vendor\owlcarosel2\owl.carousel.min.js" />
+    <Content Remove="wwwroot\vendor\contact-form\contact-form.js" />
+    <Content Remove="wwwroot\vendor\mailchimp\ajaxchimp.js" />
+    <Content Remove="wwwroot\vendor\scrollup\scrollUp.min.js" />
+    <Content Remove="wwwroot\vendor\magnific-popup\magnific-popup.min.js" />
+    <Content Remove="wwwroot\vendor\wow\wow.min.js" />
+    <Content Remove="wwwroot\vendor\jquery-1.12.4\jquery.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\fonts\linearicons\Linearicons-Free.eot" />
+    <None Include="wwwroot\fonts\linearicons\Linearicons-Free.svg" />
+    <None Include="wwwroot\fonts\linearicons\Linearicons-Free.ttf" />
+    <None Include="wwwroot\fonts\linearicons\Linearicons-Free.woff" />
+    <None Include="wwwroot\fonts\linearicons\Linearicons-Free.woff2" />
+    <None Include="wwwroot\js\main.js" />
+    <None Include="wwwroot\vendor\modernizr\modernizr-2.8.3.min.js" />
+    <None Include="wwwroot\css\animate.css" />
+    <None Include="wwwroot\css\linearicons.css" />
+    <None Include="wwwroot\css\normalize.css" />
+    <None Include="wwwroot\css\responsive.css" />
+    <None Include="wwwroot\css\style.css" />
+    <None Include="wwwroot\vendor\owlcarosel2\owl.carousel.min.css" />
+    <None Include="wwwroot\vendor\magnific-popup\magnific-popup.css" />
+    <None Include="wwwroot\vendor\jquery-ui\AUTHORS.txt" />
+    <None Include="wwwroot\vendor\jquery-ui\LICENSE.txt" />
+    <None Include="wwwroot\vendor\jquery-ui\index.html" />
+    <None Include="wwwroot\vendor\jquery-ui\jquery-ui.css" />
+    <None Include="wwwroot\vendor\jquery-ui\jquery-ui.js" />
+    <None Include="wwwroot\vendor\jquery-ui\jquery-ui.min.css" />
+    <None Include="wwwroot\vendor\jquery-ui\jquery-ui.min.js" />
+    <None Include="wwwroot\vendor\jquery-ui\jquery-ui.structure.css" />
+    <None Include="wwwroot\vendor\jquery-ui\jquery-ui.structure.min.css" />
+    <None Include="wwwroot\vendor\jquery-ui\jquery-ui.theme.css" />
+    <None Include="wwwroot\vendor\jquery-ui\jquery-ui.theme.min.css" />
+    <None Include="wwwroot\vendor\jquery-ui\package.json" />
+    <None Include="wwwroot\vendor\jquery-ui\external\jquery\jquery.js" />
+    <None Include="wwwroot\vendor\jquery-ui\images\ui-icons_444444_256x240.png" />
+    <None Include="wwwroot\vendor\jquery-ui\images\ui-icons_555555_256x240.png" />
+    <None Include="wwwroot\vendor\jquery-ui\images\ui-icons_777620_256x240.png" />
+    <None Include="wwwroot\vendor\jquery-ui\images\ui-icons_777777_256x240.png" />
+    <None Include="wwwroot\vendor\jquery-ui\images\ui-icons_cc0000_256x240.png" />
+    <None Include="wwwroot\vendor\jquery-ui\images\ui-icons_ffffff_256x240.png" />
+    <None Include="wwwroot\vendor\owlcarosel2\owl.carousel.min.js" />
+    <None Include="wwwroot\vendor\contact-form\contact-form.js" />
+    <None Include="wwwroot\vendor\mailchimp\ajaxchimp.js" />
+    <None Include="wwwroot\vendor\scrollup\scrollUp.min.js" />
+    <None Include="wwwroot\vendor\magnific-popup\magnific-popup.min.js" />
+    <None Include="wwwroot\vendor\wow\wow.min.js" />
+    <None Include="wwwroot\vendor\jquery-1.12.4\jquery.min.js" />
+  </ItemGroup>
+</Project>

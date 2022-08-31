@@ -1,0 +1,50 @@
+<h5 class="mt-0 mb-10">
+    <span *ngIf="model.id == 0">Register Appointment</span>
+    <span *ngIf="model.id > 0">Regiter Appointment {{model.title +' '+ model.firstName +' '+ model.lastName +' '+ displaySpecialist(model.medicalStaffSpecialists)}}</span>
+</h5>
+
+<div style="clear:both;">&nbsp;</div>
+<form [formGroup]="form">
+    <div fxLayout="row" fxLayoutAlign="start center" class="mb-1"> 
+        <div class="ml-xs mr-xs" style="width: 100%;">
+            <md-input-container style="width: 100%">
+                <input mdInput placeholder="Nama Pasien" [(ngModel)]="appointmentModel.patientName" formControlName="patientName">
+            </md-input-container>          
+            <small *ngIf="form.controls['patientName'].hasError('required') && form.controls['patientName'].touched" class="mat-text-warn">Nama pasien tidak boleh kosong.</small>
+        </div>                                            
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start center" class="mb-1"> 
+        <div class="ml-xs mr-xs" style="width: 100%;">                    
+            <md-input-container style="width: 100%">
+                <input mdInput placeholder="Nomor Telepon" [(ngModel)]="appointmentModel.phoneNumber" formControlName="noTelp">
+            </md-input-container>          
+            <small *ngIf="form.controls['noTelp'].hasError('required') && form.controls['noTelp'].touched" class="mat-text-warn">Nomor telepon tidak boleh kosong.</small>
+        </div>
+    </div>    
+    <div fxLayout="row" fxLayoutAlign="start center" class="mb-1"> 
+        <div class="ml-xs mr-xs" style="width: 100%;">                    
+            <md-input-container style="width: 100%">
+                <textarea mdInput
+                    mdTextareaAutosize
+                    placeholder="Problem Patient"
+                    [(ngModel)]="patientProblems"
+                    formControlName="patientProblems"></textarea>
+            </md-input-container>          
+        </div>
+    </div>        
+    <div fxLayout="row" fxLayoutAlign="start center" class="mb-1"> 
+        <div class="ml-xs mr-xs" style="width: 100%;">
+            <md-input-container>
+                <input mdInput [mdDatepicker]="aDatePicker" [(ngModel)]="aDate" placeholder="Tanggal Appointment" formControlName="aDate" style="width: 100%">
+                <button mdSuffix [mdDatepickerToggle]="aDatePicker"></button>
+            </md-input-container>
+            <md-datepicker #aDatePicker [touchUi]="touch"></md-datepicker>              
+        </div>
+    </div>
+  
+    <div fxLayout="row" fxLayoutAlign="end center" class="mb-2">
+            <button md-raised-button color="warn" class="mr-1" (click)="close()">Cancel</button>
+            <button md-raised-button color="primary" [disabled]="!form.valid" (click)="save()">Save</button>
+    </div>
+    <md-progress-bar *ngIf="onRequest" mode="indeterminate"></md-progress-bar>    
+</form>    

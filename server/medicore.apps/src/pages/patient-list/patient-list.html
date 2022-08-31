@@ -1,0 +1,46 @@
+<!--
+  Generated template for the PatientListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Pasien</ion-title>
+    <ion-buttons end>
+      <button (click)="onClickSearch()" ion-button icon-right color="royal">
+				<ion-icon name="search"></ion-icon>
+			</button>
+      <button (click)="onClickNotifications()" ion-button icon-right color="royal">
+				<ion-icon name="notifications"></ion-icon>
+			</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list no-margin *ngIf="patientList && patientList.length > 0">
+    <ion-item no-lines *ngFor="let item of patientList" (click)="onItemClicked(item.id)">
+      <h2 item-title padding-left>{{item.patientName}}</h2>
+      <ion-icon icon-small item-right>
+        <i class="icon" class="ion-ios-create"></i>
+      </ion-icon>
+    </ion-item>
+  </ion-list>
+  <ion-list no-margin *ngIf="patientList && patientList.length <= 0">
+    <ion-item>
+      <h2>Data tidak ditemukan</h2>
+    </ion-item>
+  </ion-list>
+
+  <!-- Fab Button -->
+  <ion-fab #fab bottom right>
+    <button button-ion-fab ion-fab (click)="onClickAddPatient()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

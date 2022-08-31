@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Smart Medika</ion-title>
+    <ion-buttons end>
+      <!-- <button (click)="onClickSearch()" ion-button icon-right>
+				<ion-icon name="search"></ion-icon>
+			</button> -->
+      <button (click)="onClickNotifications()" ion-button icon-right>
+				<ion-icon name="notifications"></ion-icon>
+			</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<tabs-layout-2
+    [data]="params.data"
+    [events]="params.events">
+  </tabs-layout-2>

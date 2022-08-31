@@ -1,0 +1,114 @@
+page-appointment {
+    ion-card {
+        margin-bottom: 5px !important;
+    }
+
+    ion-card-header {
+        @include gradient-accent ($color-1 !important, $color-2 !important);
+        color: theme-colors('textColors', 'accent-first') !important;
+        font-size: font-size-text('h5') !important;
+        font-weight: 500 !important;
+    }
+
+    ion-card-content {
+        // background-color: #60ABAA;
+    }
+
+    .calendar-bgcolor {
+        // background-color: white;
+    }
+
+    .card-header-title {
+        margin-top: -30px;
+        @include gradient-accent ($color-1 !important, $color-2 !important);
+        color: theme-colors('textColors', 'accent-first') !important;
+        font-size: font-size-text('h5') !important;
+        font-weight: 500 !important;
+    }
+
+    .card-header-title h2 {
+        color: white
+    }
+
+    .card-header-title button {
+        background-color: transparent !important
+    }
+
+    .card-header-title button ion-icon {
+        color: white;
+    }
+
+    .header {
+        background-image: url('../assets/images/background/bghospital.jpg');
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        background-repeat: no-repeat;
+        &::before {
+            content: "";
+            display: block;
+            height: 24%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            position: absolute;
+            pointer-events: none;
+            mix-blend-mode: multiply;
+            @include gradient-accent ($color-1, $color-2);
+        }
+    }
+
+    ion-item {
+        margin-left: -100px;
+    }
+
+    .avatar {
+        position: relative;
+    }
+
+    .avatar img {
+        border-radius: 50%;
+        border: 2px solid white;
+        height: 100px;
+        width: 100px;
+
+        position: absolute;
+        left: 0; right: 0;
+        top:0; bottom: 0;
+        margin: auto;
+
+        max-width: 100%;
+        max-height: 100%;
+        overflow: 0;
+    }
+
+    .header-icon {
+        // position: relative;
+        height: 45px;
+    }
+
+    .header-icon ion-title {
+        margin-top: -30px;
+    }
+
+    .header-icon ion-buttons {
+        margin-top: -40px;
+    }
+
+    .rating {
+        text-align: left;
+        unicode-bidi: bidi-override;
+        direction: rtl;
+    }
+    .rating > span {
+        display: inline-block;
+        position: relative;
+        width: 1.1em;
+    }
+    .rating > span:hover:before,
+    .rating > span:hover ~ span:before {
+        content: "\2605";
+        position: absolute;
+        color: gold;
+    }
+}

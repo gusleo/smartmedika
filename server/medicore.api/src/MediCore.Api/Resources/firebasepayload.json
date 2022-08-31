@@ -1,0 +1,18 @@
+{
+	"Review": {
+		"Title": "Penilaian anda",
+		"Content": "Silahkan berikan penilaian anda untuk pelayanan kami",
+		"NotificationType": "NOTIFICATION_REVIEW"
+	},
+	"NextAppointment": {
+		"Title": "Atur Janji Dokter",
+		"Content": "Silahkan atur janji dokter anda untuk pemeriksaan berikutnya",
+		"NotificationType": "NOTIFICATION_NEXT_APPOINTMENT"
+	},
+	"Queue": {
+		"Title": "Nomor Atrian {0}",
+		"Content": "{0}",
+		"NotificationType": "NOTIFICATION_QUEUE"
+	}
+
+}

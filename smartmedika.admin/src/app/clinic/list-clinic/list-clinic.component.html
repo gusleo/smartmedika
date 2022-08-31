@@ -1,0 +1,53 @@
+<ngx-datatable
+  class="material"
+  [columnMode]="'force'"
+  [rows]="results"
+  [loadingIndicator]="loadingIndicator"  
+  [columnMode]="force"
+  [headerHeight]="50"
+  [footerHeight]="50"
+  [rowHeight]="'auto'"
+  [externalPaging]="true"
+  [count]="total"
+  [offset]="offset"
+  [limit]="PAGE_SIZE"
+  (page)='onPage($event)'>
+  
+    <ngx-datatable-column name="No." [width]="20"> 
+        <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+          <strong>{{numberOfpage + rowIndex + 1}}</strong>
+        </ng-template>     
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Nama Klinik">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{row.name}}
+        </ng-template>     
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Alamat">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <span>{{row.address}}</span>, <span>{{row.regency.name}}</span> - <span>{{row.regency.region.name}}</span>
+        </ng-template>     
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Status" [width]="100">  
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <md-select placeholder="" [(ngModel)]="row.status"  (ngModelChange)="onStatusChange(row.id, $event)">
+            <md-option *ngFor="let item of status" [value]="item.value">
+              {{ item.name }}
+            </md-option>
+          </md-select>
+        </ng-template>     
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="" [width]="80">         
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        <button md-raised-button md-button-sm class="mr-1" color="teal" type="submit" [routerLink]="['/clinic/register',row.id]">
+          <md-icon class="menu-caret">create</md-icon> Edit
+        </button>          
+                 
+      </ng-template>
+    </ngx-datatable-column>
+
+</ngx-datatable>

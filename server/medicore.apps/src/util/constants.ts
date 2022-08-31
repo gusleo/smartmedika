@@ -1,0 +1,23 @@
+export const ALLOWED = 'allowed';
+export const NOT_ALLOWED = 'notAllowed';
+export const ACCEPT: string = 'Accept';
+export const APPLICATION_JSON: string = 'application/json';
+export const CONTENT_TYPE_HEADER: string = 'Content-Type';
+export const APPLICATION_URLENCODED: string = 'application/x-www-form-urlencoded';
+export const AUTHORIZATION: string = 'Authorization';
+export const AUTHORIZATION_BASIC: string = 'Basic bWVkaWNvcmU6RnVja0dvdmVybWVudA== ';
+export const BACKEND_URL_TOKEN: string = 'http://authsmartmedika.herokuapp.com/connect/token';
+export const ACCESS_TOKEN = 'accessToken';
+export const REFRESH_TOKEN = 'refreshToken';
+// export const HAS_LOGGED_IN = 'hasLoggedIn';
+export const PAGE_SIZE: number = 20;
+export const RADIUS: number = 30000; // radius in metres
+export const ID_PEDIATRICIAN: number = 3;
+export const ID_OBGYN: number = 4;
+export const LATITUDE = 'latitude';
+export const LONGITUDE = 'longitude';
+export const USERNAME = 'username';
+export const DEVICE_ID = 'deviceId';
+export const DEVICE_TOKEN = 'deviceToken';
+export const DEVICE_OS = 'deviceOS';
+export const PHONE_NUMBER = 'phoneNumber';

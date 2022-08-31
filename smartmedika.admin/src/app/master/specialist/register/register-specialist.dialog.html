@@ -1,0 +1,50 @@
+<h5 class="mt-0 mb-10">
+  <span *ngIf="model.id == 0">Register Spesialis</span>
+  <span *ngIf="model.id > 0">Edit Spesialis {{model.name}}</span>
+</h5>
+<form [formGroup]="form">
+  <div fxLayout="row" fxLayoutAlign="start center" class="mb-1"> 
+      <div class="ml-xs mr-xs" style="width: 100%;">
+        <md-input-container style="width: 100%">
+            <input mdInput placeholder="Gelar Spesialis" [(ngModel)]="model.name" formControlName="nameMessage">
+        </md-input-container>          
+        <small *ngIf="form.controls['nameMessage'].hasError('required') && form.controls['nameMessage'].touched" class="mat-text-warn">Gelar tidak boleh kosong.</small>                                               
+      </div>  
+  </div>
+  <div fxLayout="row" fxLayoutAlign="start center" class="mb-1"> 
+      <div class="ml-xs mr-xs" style="width: 100%;">    
+        <md-input-container style="width: 100%">
+            <input mdInput placeholder="Keterangan" [(ngModel)]="model.alias" formControlName="aliasMessage">
+        </md-input-container>          
+        <small *ngIf="form.controls['aliasMessage'].hasError('required') && form.controls['aliasMessage'].touched" class="mat-text-warn">Keterangan tidak boleh kosong.</small>
+      </div>  
+  </div>    
+  <div fxLayout="row" fxLayoutAlign="start center" class="mb-1"> 
+      <div class="ml-xs mr-xs" style="width: 100%;">
+        <md-select placeholder="Pilih Predikat" style="width: 100%" [(ngModel)]="model.staffType" (ngModelChange)="onStaffTypeChange($event)" formControlName="predikatMessage">
+          <md-option *ngFor="let item of resultStaff" [value]="item.id">
+            {{ item.name }}
+          </md-option>
+        </md-select>
+        <small *ngIf="form.controls['predikatMessage'].hasError('required') && form.controls['predikatMessage'].touched" class="mat-text-warn">Predikat tidak boleh kosong.</small>                                                  
+      </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="start center" class="mb-1">
+      <div class="ml-xs mr-xs" style="width: 100%;"> 
+        <md-input-container style="width: 100%">          
+            <input mdInput placeholder="Poliklinik" [mdAutocomplete]="polyauto" [formControl]="polyCtrl" >
+        </md-input-container>    
+        <md-autocomplete #polyauto="mdAutocomplete" [displayWith]="displayPolyclinic">
+          <md-option *ngFor="let item of listPoly | async" [value]="item">
+            <span>{{item.name}}</span>
+          </md-option>
+        </md-autocomplete>  
+    </div>          
+  </div>      
+
+  <div fxLayout="row" fxLayoutAlign="end center" class="mb-2">
+      <button md-raised-button color="warn" class="mr-1" (click)="close()">Cancel</button>
+      <button md-raised-button color="primary" [disabled]="!form.valid" (click)="save()">Save</button>
+  </div>
+  <md-progress-bar *ngIf="onRequest" mode="indeterminate"></md-progress-bar>    
+</form>

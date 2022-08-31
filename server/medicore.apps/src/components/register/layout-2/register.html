@@ -1,0 +1,36 @@
+<!-- Themes Register + Image -->
+<ion-content has-header white-background>
+<ion-grid>
+  <ion-row wrap padding>
+    <ion-col col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+      <!--Logo-->
+      <div logo>
+        <img [src]="data.logo" >
+      </div><!--End logo-->
+      <!--Form-->
+      <div class="form">
+        <ion-item no-padding transparent>
+          <!--Icon for name-->
+          <ion-icon item-left>
+            <i icon-small class="icon {{data.iconName}}"></i>
+          </ion-icon>
+          <!---Input field name-->
+          <ion-label floating>{{data.name}}</ion-label>
+          <ion-input required type="text" [(ngModel)]="name"></ion-input>
+        </ion-item>
+        <ion-item no-padding transparent>
+          <!--Icon for phone-->
+          <ion-icon item-left>
+            <i icon-small class="icon {{data.iconPhone}}"></i>
+          </ion-icon>
+          <!---Input field phone-->
+          <ion-label floating>{{data.phone}}</ion-label>
+          <ion-input required type="number" [(ngModel)]="phone"></ion-input>
+        </ion-item>
+        <!---Register button-->
+        <button ion-button right clear button-clear (click)="onEvent('onRegister')">{{data.submit}}</button>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

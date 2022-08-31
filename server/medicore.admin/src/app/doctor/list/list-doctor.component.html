@@ -1,0 +1,71 @@
+<div class="animated fadeIn">
+    <div class="card">
+        <div class="card-header">Daftar Dokter</div>
+        <div class="card-block">
+            <div class="row mb-1">
+                    <div class="col-md-2">                    
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                            <input type="text" class="form-control" placeholder="Search" />
+                        </div>
+                    </div> 
+                    <div class="col-md-3">                    
+                        <select id="lokasi" name="lokasi" class="form-control input-lg" size="1">
+                            <option value="0">Lokasi</option>
+                            <option value="1">Option #1</option>
+                            <option value="2">Option #2</option>
+                            <option value="3">Option #3</option>
+                        </select>                    
+                    </div>
+                    <div class="col-md-3">                    
+                        <button type="submit" class="btn btn-info">Cari</button>
+                        <button type="submit" class="btn btn-secondary active">Export To Excel</button>                            
+                    </div>                
+                    <div class="col-4 text-right">
+                        <button type="submit" class="btn btn-primary" (click)="register()">Register Dokter Baru</button>
+                    </div>                
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th style="width: 50%">Nama</th>
+                        <th style="width: 20%">Spesialis</th>
+                        <th style="width: 10%">Lokasi</th>
+                        <th style="width: 20%">No SIP</th>
+                        <th style="width: 20%">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="assets/img/avatars/headshot.png" class="img-avatar" alt="Avatar" style="width:5%;"> Prof. Hendra Santosa</td>
+                        <td class="text-center">Anak</td>
+                        <td class="text-center">Denpasar</td>
+                        <td class="text-center">123456789</td>
+                        <td class="text-center"><button type="submit" class="btn btn-sm btn-success">Tambah Ke Klinik</button></td>
+                    </tr>
+                    <tr>
+                        <td><img src="assets/img/avatars/headshot.png" class="img-avatar" alt="Avatar" style="width:5%;"> Dr. Upadana</td>
+                        <td class="text-center">Kandungan</td>
+                        <td class="text-center">Denpasar</td>
+                        <td class="text-center">123456789</td>
+                        <td class="text-center"><button type="submit" class="btn btn-sm btn-danger">Hapus dari Klinik</button></td>
+                    </tr>
+                    <tr>
+                        <td><img src="assets/img/avatars/headshot.png" class="img-avatar" alt="Avatar" style="width:5%;"> Dr. Suyasa</td>
+                        <td class="text-center">Ortopedi</td>
+                        <td class="text-center">Denpasar</td>
+                        <td class="text-center">123456789</td>
+                        <td class="text-center"><button type="submit" class="btn btn-sm btn-danger">Hapus dari Klinik</button></td>
+                    </tr>
+                    <tr>
+                        <td><img src="assets/img/avatars/headshot.png" class="img-avatar" alt="Avatar" style="width:5%;"> dr. Wirama</td>
+                        <td class="text-center">Umum</td>
+                        <td class="text-center">Denpasar</td>
+                        <td class="text-center">123456789</td>
+                        <td class="text-center"><button type="submit" class="btn btn-sm btn-success">Tambah Ke Klinik</button></td>
+                    </tr>                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

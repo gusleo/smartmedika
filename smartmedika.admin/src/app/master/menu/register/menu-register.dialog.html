@@ -1,0 +1,74 @@
+<h5 class="mt-0 mb-10">
+    <span *ngIf="menu.id == 0">Register Menu</span>
+    <span *ngIf="menu.id > 0">Edit Menu</span>
+  </h5>
+  <form [formGroup]="form">   
+      <div fxLayout="row" fxLayoutAlign="start center" class="mb-"> 
+            <div class="ml-xs mr-xs" style="width: 100%;">          
+                <md-input-container style="width: 100%">
+                    <input mdInput placeholder="Nama Menu" [(ngModel)]="menu.displayName" formControlName="displayNameMessage">
+                </md-input-container>                                                 
+                <small *ngIf="form.controls['displayNameMessage'].hasError('required') && form.controls['displayNameMessage'].touched" class="mat-text-warn">Nama harus diisi.</small>            
+            </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="start center" class="mb-1"> 
+            <div class="ml-xs mr-xs" style="width: 100%;">          
+                <md-select placeholder="Pilih Menu Induk" style="width: 100%" [(ngModel)]="menu.parentId"  (ngModelChange)="onParentChange($event)" formControlName="parentMenuMessage">
+                    <md-option *ngFor="let item of parents" [value]="item.id">
+                        {{ item.displayName }}
+                    </md-option>
+                </md-select>                                           
+                <small *ngIf="form.controls['parentMenuMessage'].hasError('required') && form.controls['parentMenuMessage'].touched" class="mat-text-warn">Menu Induk harus diisi.</small>        
+           </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="start center" class="mb-1"> 
+            <div class="ml-xs mr-xs" style="width: 100%;">
+                <md-select placeholder="Pilih Icon" style="width: 100%" [(ngModel)]="menu.displayIcon"  (ngModelChange)="onDisplayIconChange($event)" formControlName="displayIconMessage">                
+                    <md-option *ngFor="let item of icons" [value]="item.icon">
+                        <md-icon class="menu-caret">{{item.icon}}</md-icon>  {{ item.displayName }}
+                </md-option>
+                </md-select>                                           
+           </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="start center" class="mb-"> 
+            <div class="ml-xs mr-xs" style="width: 100%;">
+                <md-input-container style="width: 100%">
+                    <input mdInput placeholder="Link" [(ngModel)]="menu.link" formControlName="linkMessage">
+                </md-input-container>                                                 
+                <small *ngIf="form.controls['linkMessage'].hasError('required') && form.controls['linkMessage'].touched" class="mat-text-warn">Link harus diisi.</small>            
+           </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center" class="mb-"> 
+            <div class="ml-xs mr-xs" style="width: 100%;">      
+                <md-select placeholder="Pilih Tipe Menu" [(ngModel)]="menu.type" style="width: 100%" (ngModelChange)="onMenuTipeChange($event)" formControlName="menuTypeMessage">
+                    <md-option *ngFor="let item of menutTypeList" [value]="item.code">
+                        {{ item.name }}
+                    </md-option>
+                </md-select> 
+                <small *ngIf="form.controls['menuTypeMessage'].hasError('required') && form.controls['menuTypeMessage'].touched" class="mat-text-warn">Tipe menu harus diisi.</small>                            
+            </div>           
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center" class="mb-"> 
+            <div class="ml-xs mr-xs" style="width: 100%;"> 
+                <md-input-container style="width: 100%">
+                    <input mdInput placeholder="Order Menu" [(ngModel)]="menu.order" formControlName="orderMenuMessage">
+                </md-input-container>                                                 
+                <small *ngIf="form.controls['orderMenuMessage'].hasError('required') && form.controls['orderMenuMessage'].touched" class="mat-text-warn">Order menu harus diisi.</small>            
+           </div>
+        </div>          
+      <div class="mb-1">
+        <h5>Roles</h5>      
+        <md-grid-list cols="2" style="min-height: 90px;" rowHeight="fit">
+            <md-grid-tile *ngFor="let role of roles">   
+                <div class="checkbox-container">
+                    <md-checkbox [(ngModel)]="role.checked" [ngModelOptions]="{standalone: true}">{{role.roleName}}</md-checkbox> 
+                </div>                            
+            </md-grid-tile>
+        </md-grid-list>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="end center" class="mb-2">
+          <button md-raised-button color="warn" class="mr-1" (click)="close()">Cancel</button>
+          <button md-raised-button color="primary" [disabled]="!form.valid" (click)="save()">Save</button>
+      </div>
+      <md-progress-bar *ngIf="onRequest" mode="indeterminate"></md-progress-bar>
+  </form>

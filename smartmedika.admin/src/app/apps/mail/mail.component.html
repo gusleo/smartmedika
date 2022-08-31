@@ -1,0 +1,112 @@
+<md-sidenav-container class="app-inner background-none shadow-none">
+  <md-sidenav #mailnav [mode]="isOver() ? 'over' : 'side'" [opened]="!isOver()" class="mail-sidebar pl-xs pr-xs">
+    <md-nav-list class="messages-nav">
+      <a href="javascript:;" md-list-item>
+        <md-icon class="mat-text-muted">inbox</md-icon>
+        <span>Inbox</span>
+      </a>
+      <a href="javascript:;" md-list-item>
+        <md-icon class="mat-text-muted">schedule</md-icon>
+        <span>Snoozed</span>
+      </a>
+      <a href="javascript:;" md-list-item>
+        <md-icon class="mat-text-muted">check</md-icon>
+        <span>Done</span>
+      </a>
+      <md-divider></md-divider>
+      <a href="javascript:;" md-list-item>
+        <md-icon class="mat-text-muted">send</md-icon>
+        <span>Sent</span>
+      </a>
+      <a href="javascript:;" md-list-item>
+        <md-icon class="mat-text-muted">drafts</md-icon>
+        <span>Draft</span>
+      </a>
+      <a href="javascript:;" md-list-item>
+        <md-icon class="mat-text-muted">stars</md-icon>
+        <span>Important</span>
+      </a>
+      <a href="javascript:;" md-list-item>
+        <md-icon class="mat-text-muted">error</md-icon>
+        <span>Junk</span>
+      </a>
+      <a href="javascript:;" md-list-item>
+        <md-icon class="mat-text-muted">delete</md-icon>
+        <span>Trash</span>
+      </a>
+      <md-divider></md-divider>
+      <h3 md-subheader>Circles</h3>
+      <a href="javascript:;" md-list-item>
+        <md-icon class="mat-text-primary">people</md-icon>
+        <span>Social</span>
+      </a>
+      <a href="javascript:;" md-list-item>
+        <md-icon class="mat-text-warn">local_offer</md-icon>
+        <span>Promotions</span>
+      </a>
+      <a href="javascript:;" md-list-item>
+        <md-icon class="mat-text-accent">wc</md-icon>
+        <span>Family</span>
+      </a>
+      <a href="javascript:;" md-list-item>
+        <md-icon class="mr-1">business</md-icon>
+        <span>Work</span>
+      </a>
+      <a href="javascript:;" md-list-item>
+        <md-icon class="mat-text-accent">contacts</md-icon>
+        <span>Clients</span>
+      </a>
+    </md-nav-list>
+  </md-sidenav>
+  <md-toolbar color="primary" fxHide="false" fxHide.gt-sm>
+    <button (click)="mailnav.toggle()" md-icon-button>
+      <md-icon>short_text</md-icon>
+    </button>
+    <span class="mr-1 ml-1">Mailbox</span>
+  </md-toolbar>
+  <div class="main-content" fxLayout="row" fxLayoutAlign="center start">
+    <div class="messages-list" fxFlex.gt-sm="90" fxFlex.gt-xs="95" fxFlex="100">
+      <md-accordion [displayMode]="displayMode" [multi]="multi">
+        <md-expansion-panel  [hideToggle]="hideToggle" *ngFor="let message of messages; let i = index" [class.selected]="message === selectedMessage">
+          <md-expansion-panel-header (click)="onSelect(message)">
+            <div fxLayout="row" fxLayoutAlign="none center" class="w-100">
+              <img alt="" class="message-icon mr-1 hide-on-open" src="{{message.avatar}}" *ngIf="!message.icon"/>
+              <md-icon [ngClass]="message.iconClass" class="mr-1 hide-on-open" *ngIf="message.icon">{{message.icon}}</md-icon>
+              <div class="pr-1 hide-on-open" fxShow="false" fxShow.gt-xs style="min-width: 120px;">
+                <span>{{message.from}}</span>
+              </div>
+              <div class="text-ellipsis">
+                <span>{{message.subject}}</span>
+              </div>
+              <span fxFlex></span>
+              <div class="pl-1 text-xs-right text-ellipsis hide-on-open" fxShow="false" fxShow.gt-sm>
+                <small class="text-xs-muted">{{ message.date | date: 'fullDate' }}</small>
+              </div>
+            </div>
+          </md-expansion-panel-header>
+          <md-card *ngIf="selectedMessage" class="shadow-none">
+            <md-card-header>
+              <img md-card-avatar *ngIf="!selectedMessage.icon" src="{{selectedMessage.avatar}}"  class="ml-0">
+              <md-icon *ngIf="selectedMessage.icon" md-card-avatar [ngClass]="selectedMessage.iconClass" class="ml-0">{{selectedMessage.icon}}</md-icon>
+              <md-card-title>{{selectedMessage.from}}</md-card-title>
+              <md-card-subtitle>{{selectedMessage.date | date: 'fullDate'}}</md-card-subtitle>
+            </md-card-header>
+            <md-card-content class="pl-0">
+              <div [innerHTML]="selectedMessage.body"></div>
+            </md-card-content>
+          </md-card>
+          <md-action-row>
+            <button md-raised-button md-button-sm color="primary" class="mx-xs">Archive</button>
+            <button md-raised-button md-button-sm color="accent" class="mx-xs">Delete</button>
+            <button md-raised-button md-button-sm class="mx-xs">Forward</button>
+            <button md-raised-button md-button-sm class="mx-xs">Trash</button>
+          </md-action-row>
+        </md-expansion-panel>
+      </md-accordion>
+    </div>
+  </div>
+</md-sidenav-container>
+
+<button md-fab color="warn" class="mat-fab-bottom-right">
+  <md-icon class="md-24">create</md-icon>
+</button>

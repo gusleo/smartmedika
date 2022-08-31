@@ -1,0 +1,82 @@
+<!--
+  Generated template for the SearchFilterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Filter</ion-title>
+    <ion-buttons end>
+      <button (click)="onClickDone()" ion-button clear>Selesai
+			</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-list radio-group>
+    <ion-list-header header-title>
+      Jarak
+    </ion-list-header>
+
+    <ion-item>
+      <ion-range [(ngModel)]="singleValue" color="danger" pin="true"></ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-label item-title>Semua Lokasi</ion-label>
+      <ion-radio value="all-location"></ion-radio>
+    </ion-item>
+  </ion-list>
+
+  <br>
+
+  <ion-list radio-group>
+    <ion-list-header header-title>
+      Ketersediaan
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label item-title>Semua Waktu</ion-label>
+      <ion-radio checked="true" value="all-times"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label item-title>Hari Ini</ion-label>
+      <ion-radio value="today"></ion-radio>
+    </ion-item>
+  </ion-list>
+
+  <!--<ion-list>-->
+    <!--<ion-item>-->
+       <!-- <ion-range [(ngModel)]="singleValue1" color="danger" pin="true"></ion-range>  -->
+    <!--</ion-item>-->
+
+    <!--<ion-item>
+      <ion-range min="-200" max="200" [(ngModel)]="saturation" color="secondary">
+        <ion-label range-left>-200</ion-label>
+        <ion-label range-right>200</ion-label>
+      </ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-range min="20" max="80" step="2" [(ngModel)]="brightness">
+        <ion-icon small range-left name="sunny"></ion-icon>
+        <ion-icon range-right name="sunny"></ion-icon>
+      </ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>step=100, snaps, </ion-label>
+      <ion-range min="1000" max="2000" step="100" snaps="true" color="secondary" [(ngModel)]="singleValue4"></ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>dual, step=3, snaps, </ion-label>
+      <ion-range dualKnobs="true" [(ngModel)]="dualValue2" min="21" max="72" step="3" snaps="true"></ion-range>
+    </ion-item>-->
+  <!--</ion-list>-->
+</ion-content>

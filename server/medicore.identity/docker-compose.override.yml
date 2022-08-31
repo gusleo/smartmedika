@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  medicore.authentication:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+  medicore.api:
+   environment:
+      - ASPNETCORE_ENVIRONMENT=Docker

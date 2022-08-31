@@ -1,0 +1,10 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\dna.core.auth",
+    "\\dna.core.auth\\Infrastructure",
+    "\\identityserver-token-exchange"
+  ],
+  "SelectedNode": "\\dna.core.auth",
+  "PreviewInSolutionExplorer": false
+}

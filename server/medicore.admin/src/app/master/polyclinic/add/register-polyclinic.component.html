@@ -1,0 +1,29 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-12">
+             <div class="card">
+                <form [formGroup]="poliForm" (submit)="submitForm()">
+                <div class="card-header text-center">
+                    <h3>Registrasi Poliklinik</h3>                    
+                </div>                 
+                 <div class="card-block">                   
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="name_depan">Nama Poliklinik</label><span class="text-color">*</span>
+                                <input type="text" formControlName="name" class="form-control input-lg" name="name" [(ngModel)]="model.name" placeholder="Nama Poliklinik">
+                                <control-messages [control]="poliForm.controls.name"></control-messages>
+                            </div>
+                        
+                        </div>                        
+                    </div>
+                </div>
+                <div class="card-footer text-center">
+                    <button type="submit" class="btn btn-lg btn-primary" [disabled]="!poliForm.valid"><i class="fa fa-dot-circle-o"></i> Simpan</button>
+                </div>                                
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<toaster-container [toasterconfig]="toasterconfig"></toaster-container>

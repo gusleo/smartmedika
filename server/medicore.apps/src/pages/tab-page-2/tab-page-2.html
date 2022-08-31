@@ -1,0 +1,14 @@
+<!---Settings TAB lauout-2-->
+<ion-content has-header>
+      <ion-list *ngIf="articleList && articleList.length > 0">
+        <ion-item *ngFor="let item of articleList" (click)="onItemClicked(item.id)">
+          <h2>{{item.title}}</h2>
+          <p>{{item.description}}</p>
+        </ion-item>
+      </ion-list>
+      <ion-list *ngIf="articleList && articleList.length <= 0">
+        <ion-item>
+          <h2>Data tidak ditemukan</h2>
+        </ion-item>
+      </ion-list>
+</ion-content>

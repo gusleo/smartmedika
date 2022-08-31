@@ -1,0 +1,16 @@
+<div class="picture-group" >
+  <div class="picture-wrapper" (click)="bringFileSelector();">
+    <img src="{{ galeriPhoto }}" *ngIf="galeriPhoto">
+    <img src="{{ defaultGaleri }}" *ngIf="!galeriPhoto && defaultGaleri">
+
+    <div class="loading" *ngIf="uploadInProgress">
+      <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+      </div>
+    </div>
+  </div>
+  <i class="icon-close icons" (click)="removePicture();" *ngIf="galeriPhoto && canDelete"></i>
+  <a href class="change-picture" (click)="bringFileSelector();">Change profile Picture</a>
+  <input #fileUpload type="file" hidden="true" id="uploadFile" (change)="onFiles()">
+</div>

@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  medicore.authentication:
+    image: medicore.authentication
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    ports:
+      - 5000:5000
+    build:
+      context: ./src/MediCore.Authentication
+      dockerfile: Dockerfile
+  medicore.api:
+    image: medicore.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    ports:
+      - 5001:5001
+    build:
+      context: ../medicore.api/src/MediCore.Api
+      dockerfile: Dockerfile

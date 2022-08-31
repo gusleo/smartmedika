@@ -1,0 +1,78 @@
+<md-card>
+  <md-card-title>Select</md-card-title>
+  <md-card-subtitle>ngModel</md-card-subtitle>
+  <md-card-content>
+    <md-select placeholder="Drink" [color]="drinksTheme" [(ngModel)]="currentDrink" [required]="drinksRequired"
+      [disabled]="drinksDisabled" [floatPlaceholder]="floatPlaceholder" #drinkControl="ngModel">
+      <md-option>None</md-option>
+      <md-option *ngFor="let drink of drinks" [value]="drink.value" [disabled]="drink.disabled">
+        {{ drink.viewValue }}
+      </md-option>
+    </md-select>
+    <p class="text-md"> Value: {{ currentDrink }} </p>
+    <p class="text-md"> Touched: {{ drinkControl.touched }} </p>
+    <p class="text-md"> Dirty: {{ drinkControl.dirty }} </p>
+    <p class="text-md"> Status: {{ drinkControl.control?.status }} </p>
+    <p>
+      <label for="floating-placeholder">Floating placeholder:</label>
+      <select [(ngModel)]="floatPlaceholder" id="floating-placeholder">
+        <option value="auto">Auto</option>
+        <option value="always">Always</option>
+        <option value="never">Never</option>
+      </select>
+    </p>
+    <p>
+      <label for="drinks-theme">Theme:</label>
+      <select [(ngModel)]="drinksTheme" id="drinks-theme">
+        <option *ngFor="let theme of availableThemes" [value]="theme.value">{{ theme.name }}</option>
+      </select>
+    </p>
+
+    <button md-button (click)="currentDrink='water-2'">SET VALUE</button>
+    <button md-button (click)="drinksRequired=!drinksRequired">TOGGLE REQUIRED</button>
+    <button md-button (click)="drinksDisabled=!drinksDisabled">TOGGLE DISABLED</button>
+    <button md-button (click)="drinkControl.reset()">RESET</button>
+  </md-card-content>
+</md-card>
+
+<md-card>
+  <md-card-title>Select</md-card-title>
+  <md-card-subtitle>Multiple selection</md-card-subtitle>
+  <md-card-content>
+    <md-select multiple [color]="pokemonTheme" placeholder="Pokemon" [(ngModel)]="currentPokemon"
+      [required]="pokemonRequired" [disabled]="pokemonDisabled" #pokemonControl="ngModel">
+      <md-option *ngFor="let creature of pokemon" [value]="creature.value">
+        {{ creature.viewValue }}
+      </md-option>
+    </md-select>
+    <p class="text-md"> Value: {{ currentPokemon }} </p>
+    <p class="text-md"> Touched: {{ pokemonControl.touched }} </p>
+    <p class="text-md"> Dirty: {{ pokemonControl.dirty }} </p>
+    <p class="text-md"> Status: {{ pokemonControl.control?.status }} </p>
+    <p>
+      <label for="pokemon-theme">Theme:</label>
+      <select [(ngModel)]="pokemonTheme" id="pokemon-theme">
+        <option *ngFor="let theme of availableThemes" [value]="theme.value">{{ theme.name }}</option>
+      </select>
+    </p>
+    <button md-button (click)="setPokemonValue()">SET VALUE</button>
+    <button md-button (click)="pokemonRequired=!pokemonRequired">TOGGLE REQUIRED</button>
+    <button md-button (click)="pokemonDisabled=!pokemonDisabled">TOGGLE DISABLED</button>
+    <button md-button (click)="pokemonControl.reset()">RESET</button>
+  </md-card-content>
+</md-card>
+
+<md-card>
+  <md-card-title>Select</md-card-title>
+  <md-card-subtitle>Option groups</md-card-subtitle>
+  <md-card-content>
+    <md-select placeholder="Pokemon" [(ngModel)]="currentPokemonFromGroup">
+      <md-optgroup *ngFor="let group of pokemonGroups" [label]="group.name"
+        [disabled]="group.disabled">
+        <md-option *ngFor="let creature of group.pokemon" [value]="creature.value">
+          {{ creature.viewValue }}
+        </md-option>
+      </md-optgroup>
+    </md-select>
+  </md-card-content>
+</md-card>

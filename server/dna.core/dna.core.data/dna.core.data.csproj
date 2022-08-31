@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>dna.core.data</AssemblyName>
+    <PackageId>dna.core.data</PackageId>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\dna.core.auth\dna.core.auth.csproj" />
+  </ItemGroup>
+</Project>

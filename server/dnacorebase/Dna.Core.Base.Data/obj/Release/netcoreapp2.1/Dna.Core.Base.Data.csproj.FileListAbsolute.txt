@@ -1,0 +1,11 @@
+E:\BITBUCKET\MediCore\DNA.Core.Base\Dna.Core.Base.Data\bin\Release\netcoreapp2.1\Dna.Core.Base.Data.deps.json
+E:\BITBUCKET\MediCore\DNA.Core.Base\Dna.Core.Base.Data\bin\Release\netcoreapp2.1\Dna.Core.Base.Data.runtimeconfig.json
+E:\BITBUCKET\MediCore\DNA.Core.Base\Dna.Core.Base.Data\bin\Release\netcoreapp2.1\Dna.Core.Base.Data.runtimeconfig.dev.json
+E:\BITBUCKET\MediCore\DNA.Core.Base\Dna.Core.Base.Data\bin\Release\netcoreapp2.1\Dna.Core.Base.Data.dll
+E:\BITBUCKET\MediCore\DNA.Core.Base\Dna.Core.Base.Data\bin\Release\netcoreapp2.1\Dna.Core.Base.Data.pdb
+E:\BITBUCKET\MediCore\DNA.Core.Base\Dna.Core.Base.Data\obj\Release\netcoreapp2.1\Dna.Core.Base.Data.csprojAssemblyReference.cache
+E:\BITBUCKET\MediCore\DNA.Core.Base\Dna.Core.Base.Data\obj\Release\netcoreapp2.1\Dna.Core.Base.Data.csproj.CoreCompileInputs.cache
+E:\BITBUCKET\MediCore\DNA.Core.Base\Dna.Core.Base.Data\obj\Release\netcoreapp2.1\Dna.Core.Base.Data.AssemblyInfoInputs.cache
+E:\BITBUCKET\MediCore\DNA.Core.Base\Dna.Core.Base.Data\obj\Release\netcoreapp2.1\Dna.Core.Base.Data.AssemblyInfo.cs
+E:\BITBUCKET\MediCore\DNA.Core.Base\Dna.Core.Base.Data\obj\Release\netcoreapp2.1\Dna.Core.Base.Data.dll
+E:\BITBUCKET\MediCore\DNA.Core.Base\Dna.Core.Base.Data\obj\Release\netcoreapp2.1\Dna.Core.Base.Data.pdb

@@ -1,0 +1,25 @@
+
+<ion-split-pane when="md">
+<ion-menu [content]="content">
+  <ion-header>
+    <div class="header-background-image">
+        <img src="assets/images/logo/logo-blue-01-1.png">
+    <h2 item-title text-center>SMART MEDIKA</h2>
+    </div>
+  </ion-header>
+  <!-- Menu Main List -->
+  <ion-content color="primary">
+    <ion-list no-margin>
+      <button menuClose paddinge-left ion-item no-lines item-title main-menu
+        *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon icon-small item-left>
+          <i class="icon {{p.icon}}"></i>
+        </ion-icon>
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content main swipeBackEnabled="false"></ion-nav>
+</ion-split-pane>

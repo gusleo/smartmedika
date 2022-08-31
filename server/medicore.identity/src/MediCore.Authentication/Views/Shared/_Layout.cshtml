@@ -1,0 +1,192 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - SmartMedika</title>
+
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+	<environment include="Development">
+		<!-- Plugin-CSS -->
+		<link rel="stylesheet" href="~/vendor/bootstrap-3.3.7/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="~/vendor/magnific-popup/magnific-popup.css" />
+		<link rel="stylesheet" href="~/vendor/animate/animate.css" />
+		<script src="~/vendor/modernizr/modernizr-2.8.3.min.js"></script>
+	</environment>
+	<environment exclude="Development">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+			  asp-fallback-href="~/vendor/bootstrap-3.3.7/css/bootstrap.min.css"
+			  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"
+			  asp-fallback-href="~/vendor/magnific-popup/magnific-popup.css"
+			  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
+			  asp-fallback-href="~/vendor/animate/animate.css"
+			  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"
+				asp-fallback-src="~/vendor/modernizr-2.8.3.min.js"></script>
+	</environment>
+	<link rel="stylesheet" href="~/css/linearicons.css" />
+	<link rel="stylesheet" href="~/vendor/owlcarosel2/owl.carousel.min.css" />
+
+	<!-- Main-Stylesheets -->
+	<link rel="stylesheet" href="~/css/normalize.css">
+	<link rel="stylesheet" href="~/css/style.css">
+	<link rel="stylesheet" href="~/css/responsive.css">
+</head>
+<body data-spy="scroll" data-target=".mainmenu-area">
+	<!-- Preloader-content -->
+	<div class="preloader">
+		<span><i class="lnr lnr-sun"></i></span>
+	</div>
+	<!-- MainMenu-Area -->
+	<nav class="mainmenu-area" data-spy="affix" data-offset-top="200">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary_menu">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"><img src="images/logo.png" alt="Logo"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="primary_menu">
+				<ul class="nav navbar-nav mainmenu">
+					<li class="active"><a href="#home_page">Home</a></li>
+					<li><a href="#about_page">About</a></li>
+					<li><a href="#features_page">Features</a></li>
+					<li><a href="#gallery_page">Gallery</a></li>
+					<li><a href="#price_page">Pricing</a></li>
+					<li><a href="#questions_page">FAQ</a></li>
+					<li><a href="blog.html">Blog</a></li>
+					<li><a href="#contact_page">Contacts</a></li>
+				</ul>
+				<div class="right-button hidden-xs">
+					<a href="#">Sign Up</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<!-- MainMenu-Area-End -->
+
+	@RenderBody()
+
+	<!-- Footer-Area -->
+	<footer class="footer-area" id="contact_page">
+		<div class="section-padding">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="page-title text-center">
+							<h5 class="title">Contact US</h5>
+							<h3 class="dark-color">Find Us By Bellow Details</h3>
+							<div class="space-60"></div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-4">
+						<div class="footer-box">
+							<div class="box-icon">
+								<span class="lnr lnr-map-marker"></span>
+							</div>
+							<p>8-54 Paya Lebar Square <br /> 60 Paya Lebar Roa SG, Singapore</p>
+						</div>
+						<div class="space-30 hidden visible-xs"></div>
+					</div>
+					<div class="col-xs-12 col-sm-4">
+						<div class="footer-box">
+							<div class="box-icon">
+								<span class="lnr lnr-phone-handset"></span>
+							</div>
+							<p>+65 93901336 <br /> +65 93901337</p>
+						</div>
+						<div class="space-30 hidden visible-xs"></div>
+					</div>
+					<div class="col-xs-12 col-sm-4">
+						<div class="footer-box">
+							<div class="box-icon">
+								<span class="lnr lnr-envelope"></span>
+							</div>
+							<p>
+								yourmail@gmail.com <br /> backpiper.com@gmail.com
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Footer-Bootom -->
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-md-5">
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						<span>
+							Copyright &copy;
+							<script>document.write(new Date().getFullYear());</script> All rights reserved | Support by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+						</span>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						<div class="space-30 hidden visible-xs"></div>
+					</div>
+					<div class="col-xs-12 col-md-7">
+						<!--<div class="footer-menu">
+							<ul>
+								<li><a href="#">About</a></li>
+								<li><a href="#">Services</a></li>
+								<li><a href="#">Features</a></li>
+								<li><a href="#">Pricing</a></li>
+								<li><a href="#">Testimonial</a></li>
+								<li><a href="#">Contacts</a></li>
+							</ul>
+						</div>-->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Footer-Bootom-End -->
+	</footer>
+	<!-- Footer-Area-End -->
+	<environment include="Development">
+		<!--Vendor-JS-->
+		<script src="~/vendor/jquery-1.12.4/jquery.min.js" asp-append-version="true"></script>
+		<script src="~/vendor/jquery-ui/jquery-ui.js" asp-append-version="true"></script>
+		<script src="~/vendor/bootstrap-3.3.7/js/bootstrap.min.js" asp-append-version="true"></script>
+
+		<!--Plugin-JS-->
+		<script src="~/vendor/mailchimp/ajaxchimp.js" asp-append-version="true"></script>
+		<script src="~/vendor/contact-form/contact-form.js" asp-append-version="true"></script>
+		<script src="~/vendor/scrollup/scrollup.min.js" asp-append-version="true"></script>
+		<script src="~/vendor/magnific-popup/magnific-popup.min.js" asp-append-version="true"></script>
+		<script src="~/vendor/wow/wow.min.js" asp-append-version="true"></script>
+	</environment>
+
+	<environment exclude="Development">
+		<!--Vendor-JS-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"
+				asp-fallback-src="~/vendor/jquery-1.12.4/jquery.min.js"
+				asp-fallback-test="window.jQuery"
+				crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+				asp-fallback-src="~/vendor/jquery-ui/jquery-ui.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"
+				asp-fallback-src="~/vendor/bootstrap-3.3.7/js/bootstrap.min.js"
+				asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+				crossorigin="anonymous"></script>
+
+		<!--Plugin-JS-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxchimp/1.3.0/jquery.ajaxchimp.min.js" asp-fallback-src="~/vendor/mailchimp/ajaxchimp.js" asp-append-version="true"></script>
+		<script src="~/vendor/contact-form/contact-form.js" asp-fallback-src="~/vendor/contact-form/contact-form.js" asp-append-version="true"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/scrollup/2.4.1/jquery.scrollUp.min.js" asp-fallback-src="~/vendor/scrollup/scrollup.min.js" asp-append-version="true"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" asp-fallback-src="~/vendor/magnific-popup/magnific-popup.min.js" asp-append-version="true"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" asp-fallback-src="~/vendor/wow/wow.min.js" asp-append-version="true"></script>
+
+	</environment>
+	<script src="~/vendor/owlcarosel2/owl.carousel.min.js" asp-append-version="true"></script>
+	<script src="~/js/main.js" asp-append-version="true"></script>
+	@RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!--
+  Generated template for the SearchPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Pencarian Dokter dan Klinik</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <!--<ion-searchbar (ionInput)="getItems($event)" autocorrect="off" placeholder="cari"></ion-searchbar>-->
+    <ion-searchbar autocorrect="off" placeholder="cari"></ion-searchbar>
+    <ion-segment [(ngModel)]="layanan">
+      <ion-segment-button value="Dokter">
+        Dokter
+      </ion-segment-button>
+      <ion-segment-button value="Klinik">
+        Klinik
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<!--<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-toolbar primary>
+      <ion-searchbar (ionInput)="getItems($event)" autocorrect="off" placeholder="cari"></ion-searchbar>
+    </ion-toolbar>
+  </ion-navbar>
+</ion-header>-->
+
+<ion-content>
+  <div [ngSwitch]="layanan">
+    <ion-list *ngSwitchCase="'Dokter'" no-lines>
+
+      <ion-grid no-padding *ngFor="let item of nearestDoctorList">
+        <ion-row>
+          <ion-col col-12 col-md-12 col-lg-6>
+            <ion-card padding text-right class="card">
+              <div left class="card-img">
+                <img images-filter src={{displayAvatar(item.images)}} />
+              </div>
+              <!--Card-content-->
+              <ion-card-content>
+                <ion-icon>
+                  <i class="icon "></i>
+                </ion-icon>
+                <ion-card-title no-padding>
+                  <h2 card-title>{{item.title}} {{item.firstName}} {{item.lastName}} {{displaySpecialistTitle(item.medicalStaffSpecialists)}}</h2>
+                </ion-card-title>
+                <h3 card-subtitle>{{displaySpecialistDescription(item.medicalStaffSpecialists)}}</h3>
+                <h3 card-subtitle>{{item.regency.name}}</h3>
+                <div class="rating">
+                  <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                </div>
+                <p card-body-text>Praktek hari ini</p>
+                <!---Social share-->
+                <br>
+                <div social>
+                  <!-- <ion-icon>
+                    <i icon-small ng-if="group.iconLike" class="icon icon-comment"></i>
+                  </ion-icon>
+                  <ion-icon>
+                    <i icon-small ng-if="item.iconFavorite" class="icon icon-bookmark"></i>
+                  </ion-icon> -->
+                  <button default-button round ion-button (click)="onEvent('onBooking', item, $event)">Booking</button>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'Klinik'" no-lines>
+
+      <ion-grid no-padding *ngFor="let item of nearestClinicList">
+        <ion-row>
+          <ion-col col-12 col-md-12 col-lg-6>
+            <ion-card padding text-right class="card">
+              <div left class="card-img">
+                <img images-filter src={{displayClinicAvatar(item.images)}} />
+              </div>
+              <!--Card-content-->
+              <ion-card-content>
+                <ion-icon>
+                  <i class="icon "></i>
+                </ion-icon>
+                <ion-card-title no-padding>
+                  <h2 card-title>{{item.name}}</h2>
+                </ion-card-title>
+                <h3 card-subtitle>{{item.description}}</h3>
+                <h3 card-subtitle>{{item.regency.name}}</h3>
+                <h3 card-subtitle>1 km</h3>
+                <div class="rating">
+                  <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                </div>
+                <p card-body-text>{{item.operatingHours.length > 0 ? 'Buka hari ini' : 'Tutup hari ini'}}</p>
+                <br>
+                <!---Social share-->
+                <div social>
+                  <!-- <ion-icon>
+                    <i icon-small ng-if="group.iconLike" class="icon icon-comment"></i>
+                  </ion-icon>
+                  <ion-icon>
+                    <i icon-small ng-if="item.iconFavorite" class="icon icon-bookmark"></i>
+                  </ion-icon> -->
+                  <button default-button round ion-button (click)="onEvent('onBooking', item, $event)">Booking</button>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </ion-list>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid class="filter">
+      <ion-row>
+        <ion-col width-30>
+          <button icon-left (click)="onClickSort()" button-clear>
+            <ion-icon name="list"></ion-icon>
+            Urutkan
+          </button>
+        </ion-col>
+        <ion-col width-30>
+          <button icon-left (click)="onClickFilter()" button-clear>
+            <ion-icon name="funnel"></ion-icon>
+            Filter
+          </button>
+        </ion-col>
+        <ion-col width-30>
+          <button icon-left (click)="onClickShare()" button-clear>
+            <ion-icon name="share"></ion-icon>
+            Bagikan
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

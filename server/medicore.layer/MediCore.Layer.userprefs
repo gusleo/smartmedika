@@ -1,0 +1,23 @@
+﻿<Properties StartupConfiguration="{FDE7C763-9CA7-4EE3-AC5B-FE6561031674}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MediCore.Service/Helper/ContentGenerator/ContentGenerator.cs">
+    <Files>
+      <File FileName="MediCore.Service.Test/PatientService_Test.cs" Line="31" Column="10" />
+      <File FileName="MediCore.Service/Services/PatientService.cs" Line="42" Column="1" />
+      <File FileName="MediCore.Service.Test/MockDbContext.cs" Line="23" Column="82" />
+      <File FileName="MediCore.Data/Entities/Patient.cs" Line="4" Column="14" />
+      <File FileName="../dna.core/dna.core.auth/Entity/ApplicationUser.cs" Line="6" Column="11" />
+      <File FileName="MediCore.Data/Repositories/PatientRepository.cs" Line="12" Column="67" />
+      <File FileName="../dna.core/dna.core.data/Repositories/EntityReadWriteBaseRepository.cs" Line="23" Column="79" />
+      <File FileName="MediCore.Service/Helper/ContentGenerator/ContentGenerator.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/gusleo/Documents/Project/smartmedika/dna.core/dna.core.data/Repositories/EntityReadWriteBaseRepository.cs" line="25" column="42" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Test.MediCore.Service.Test PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

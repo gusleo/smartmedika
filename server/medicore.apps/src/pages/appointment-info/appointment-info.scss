@@ -1,0 +1,13 @@
+page-appointment-info {
+    ion-card-header {
+        @include gradient-accent ($color-1, $color-2);
+        color: white !important;
+    }
+
+    .bgcolor {
+        @include gradient-accent ($color-1, $color-2);
+        color: white !important;
+        padding: 5px 10px 5px 10px;
+    }
+
+}

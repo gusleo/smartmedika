@@ -1,0 +1,8 @@
+{
+  "name": "SmartMedika",
+  "app_id": "c4829f3b",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

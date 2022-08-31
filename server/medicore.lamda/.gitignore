@@ -1,0 +1,7 @@
+/.vs
+/MediCore.Lamda.Data/obj
+/MediCore.Lamda.Data/bin
+/MediCore.Lamda.Tests/bin
+/MediCore.Lamda.Tests/obj
+bin
+obj

@@ -1,0 +1,8 @@
+<h4 class="mt-0 mb-10">
+  <span *ngIf="model.id > 0">Yakin menghapus {{model.name}} ?</span>
+</h4>
+<div fxLayout="row" fxLayoutAlign="end center" class="mb-2">
+    <button md-raised-button color="warn" class="mr-1" (click)="close()">Cancel</button>
+    <button md-raised-button color="primary" (click)="delete()">Delete</button>
+</div>
+<md-progress-bar *ngIf="onRequest" mode="indeterminate"></md-progress-bar>

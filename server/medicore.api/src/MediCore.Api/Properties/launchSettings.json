@@ -1,0 +1,31 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:5001/",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "swagger/ui",
+      "environmentVariables": {
+        "AWS_REGION": "us-east-1",
+        "AWS_SECRET_ACCESS_KEY": "joDnPMhWd50oo+pj3QGQbj07nCaiGN4ECAQP02aK",
+        "AWS_ACCESS_KEY_ID": "AKIAJ6AJ2PXO5DJYHBCA",
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "MediCore.Api": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "http://localhost:5000/api/values",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

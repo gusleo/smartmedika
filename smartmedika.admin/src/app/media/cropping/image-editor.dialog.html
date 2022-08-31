@@ -1,0 +1,16 @@
+<h5 class="mt-0 mb-10">
+  <span>Image Cropping</span>
+</h5>
+<img-cropper #cropper [image]="imgData" [settings]="cropperSettings"></img-cropper>
+
+<div fxLayout="row" fxLayoutAlign="start center" class="mb-2" style="width:100%">
+    <div fxLayout="row" fxLayoutAlign="start center" style="width:50%">
+    <button md-raised-button color="teal" fxLayoutAlign="end center" 
+        (click)="fileImage.click()" >Browse</button>   
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center" style="width:50%">    
+        <button md-raised-button color="warn" class="mr-1" (click)="close()">Cancel</button>
+        <button md-raised-button color="teal" (click)="crop()">Crop</button>
+    </div>
+</div>
+<input #fileImage type="file" (change)="fileChangeListener($event)" [hidden]="true" >

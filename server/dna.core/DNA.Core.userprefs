@@ -1,0 +1,22 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="dna.core.auth/AuthenticationService.cs">
+    <Files>
+      <File FileName="dna.core.auth/AuthenticationService.cs" Line="1" Column="1" />
+      <File FileName="dna.core.libs/global.json" Line="1" Column="1" />
+      <File FileName="dna.core.unit.testing/dna.core.unit.testing.csproj" Line="1" Column="1" />
+      <File FileName="dna.core.unit.testing/MoqExtensions.cs" Line="1" Column="1" />
+      <File FileName="dna.core.unit.testing/TestAsyncQueryProvider.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <DisabledProjects>
+    <String>dna.core.helper/dna.core.helper.csproj</String>
+    <String>dna.core.libs.test/dna.core.libs.test.xproj</String>
+    <String>dna.core.service.cache/dna.core.service.cache.csproj</String>
+  </DisabledProjects>
+</Properties>
